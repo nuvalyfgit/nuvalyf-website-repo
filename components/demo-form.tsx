@@ -75,7 +75,7 @@ export function DemoForm() {
   }
 
   return (
-    <section id="contact" className="section-space bg-[#f2f8f7]">
+    <section id="contact" className="bg-[#eef6f5] py-24 sm:py-32">
       <div className="site-container grid gap-10 lg:grid-cols-[.72fr_1fr] lg:gap-16">
         <div>
           <SectionHeading eyebrow="Book a demonstration" title="Let’s modernise your clinic." description="See how NUVA LYF can simplify clinical workflows, everyday operations and patient communication for your team." />

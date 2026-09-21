@@ -24,23 +24,23 @@ const founders = [
 export function AboutTeamSection() {
   return (
     <>
-      <section id="about" className="section-space bg-[#0b1535]">
+      <section id="about" className="grain relative overflow-hidden bg-[#070d24] py-24 sm:py-32">
         <div className="site-container grid gap-14 lg:grid-cols-[.9fr_1.1fr]">
           <SectionHeading eyebrow="About NUVA LYF" title="Building better digital foundations for healthcare." description="Healthcare professionals should spend more time caring for patients and less time managing disconnected systems. NUVA LYF is building a simple, secure digital foundation for clinics across India." inverse />
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="reveal-stagger grid gap-4 sm:grid-cols-3">
             {[
               [Target,"Our mission","Make modern clinic technology simple, secure and accessible across India."],
               [Telescope,"Our vision","Help create a more connected and efficient healthcare ecosystem."],
               [Workflow,"Our approach","Build around real clinic workflows instead of forcing complex software."],
-            ].map(([Icon,title,description])=>{const IconComponent=Icon as typeof Target;return <article key={title as string} className="rounded-[22px] border border-white/10 bg-white/[0.045] p-5"><IconComponent className="h-6 w-6 text-[#39dbc0]"/><h3 className="mt-8 font-bold text-white">{title as string}</h3><p className="mt-3 text-sm leading-6 text-white/55">{description as string}</p></article>})}
+            ].map(([Icon,title,description])=>{const IconComponent=Icon as typeof Target;return <article key={title as string} className="card-lift rounded-[22px] border border-white/10 bg-white/[0.045] p-5"><IconComponent className="h-6 w-6 text-[#39dbc0]"/><h3 className="mt-8 font-bold text-white">{title as string}</h3><p className="mt-3 text-sm leading-6 text-white/55">{description as string}</p></article>})}
           </div>
         </div>
       </section>
-      <section id="team" className="section-space bg-white">
+      <section id="team" className="bg-[#f9fcfb] py-24 sm:py-32">
         <div className="site-container">
           <SectionHeading eyebrow="Founder-led" title="Meet the people building NUVA LYF." description="Business vision and technology execution working together to build a better digital experience for healthcare providers." align="center" />
-          <div className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-2">
-            {founders.map((founder)=><article key={founder.name} className="overflow-hidden rounded-[26px] border border-[#dce7e5] bg-white">
+          <div className="reveal-stagger mx-auto mt-16 grid max-w-5xl gap-6 md:grid-cols-2">
+            {founders.map((founder)=><article key={founder.name} className="card-lift overflow-hidden rounded-[26px] border border-[#e1ebe9] bg-white">
               {/* Both portraits are tall studio shots, so the square frame is
                   anchored to the top to keep faces from being cropped. */}
               <div className="relative aspect-square bg-[linear-gradient(135deg,#eef8f6_0%,#f7f8fc_100%)]">
