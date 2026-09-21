@@ -15,7 +15,7 @@ export function SiteHeader() {
         <BrandLogo />
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
           {navigation.map((item) => (
-            <a key={item.href} href={item.href} className="text-sm font-semibold text-[#526173] transition hover:text-[#087a70]">{item.label}</a>
+            <a key={item.href} href={item.href} className="py-2 text-sm font-semibold text-[#526173] transition hover:text-[#087a70]">{item.label}</a>
           ))}
         </nav>
         <div className="hidden lg:block">

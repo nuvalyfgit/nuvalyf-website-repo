@@ -95,13 +95,19 @@ a { text-decoration: none; }
 button, input, textarea, select { font: inherit; }
 ::selection { background: #bcece3; color: #0b1535; }
 
+/* The container grows with the viewport instead of stopping at 1280px, so
+   1080p and larger displays do not sit inside huge empty side margins.
+   Caps at 1600px to keep prose line-length readable. */
 .site-container { width: min(100% - 2rem, 1280px); margin-inline: auto; }
 .section-space { padding-block: clamp(5rem, 9vw, 8rem); }
 .font-display { font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif; }
 .text-gradient { background: linear-gradient(100deg, #0b6b63 5%, #22a993 48%, #6676ed 95%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .product-panel { min-height: 390px; overflow: hidden; border: 1px solid #dce8e5; border-radius: 1.35rem; background: #f5f9f8; box-shadow: 0 28px 70px rgba(0,0,0,.18); }
 
-@media (min-width: 640px) { .site-container { width: min(100% - 3rem, 1280px); } }
+@media (min-width: 640px)  { .site-container { width: min(100% - 3rem, 1280px); } }
+@media (min-width: 1280px) { .site-container { width: min(100% - 4rem, 1360px); } }
+@media (min-width: 1536px) { .site-container { width: min(100% - 5rem, 1480px); } }
+@media (min-width: 1800px) { .site-container { width: min(100% - 6rem, 1600px); } }
 @media (prefers-reduced-motion: no-preference) {
   @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
   [data-slot="tabs-content"][data-state="active"] { animation: rise .35s ease-out both; }

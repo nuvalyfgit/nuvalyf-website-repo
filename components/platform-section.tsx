@@ -52,8 +52,13 @@ export function PlatformSection() {
         <SectionHeading eyebrow="NUVA LYF Product Platform" title="One connected platform for the modern clinic." description="Move from front desk to consultation, prescription, billing, communication and reporting without breaking the flow of care." inverse />
         <p className="mt-5 max-w-2xl text-sm leading-6 text-white/55">Explore each workflow to see how NUVA LYF supports the patient journey from reception and consultation through communication and reporting.</p>
         <Tabs defaultValue="patient" className="mt-12">
-          <div className="overflow-x-auto pb-2 scrollbar-none">
-            <TabsList variant="line" className="h-auto min-w-max gap-2 rounded-full border border-white/10 bg-white/5 p-1.5">
+          {/* Wraps instead of scrolling: with the scrollbar hidden, off-screen
+              tabs were undiscoverable on phones and tablets. */}
+          <div className="pb-2">
+            {/* The h-auto override must carry the same group-data prefix as the
+                base h-9, or tailwind-merge keeps both and the taller wrapped
+                rows overflow a 36px-tall list. */}
+            <TabsList variant="line" className="w-full flex-wrap justify-start gap-2 rounded-[26px] border border-white/10 bg-white/5 p-1.5 group-data-[orientation=horizontal]/tabs:h-auto xl:w-auto xl:rounded-full">
               {platformTabs.map((tab) => {
                 const Icon = platformIcons[tab.value] ?? UserRound;
 
@@ -61,7 +66,7 @@ export function PlatformSection() {
                   <TabsTrigger
                     key={tab.value}
                     value={tab.value}
-                    className="group/tab cursor-pointer rounded-full border border-transparent px-4 py-2.5 text-white/65 after:hidden transition-[background-color,border-color,color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-[#39dbc0]/45 hover:bg-[#17345a] hover:text-white hover:shadow-[0_10px_28px_rgba(0,0,0,0.22)] focus-visible:border-[#78ead7] focus-visible:bg-[#17345a] focus-visible:text-white focus-visible:ring-[#78ead7]/35 data-[state=active]:border-white data-[state=active]:bg-white data-[state=active]:text-[#0b1535] data-[state=active]:shadow-[0_10px_30px_rgba(0,0,0,0.2)] data-[state=active]:hover:translate-y-0 data-[state=active]:hover:border-white data-[state=active]:hover:bg-white data-[state=active]:hover:text-[#0b1535]"
+                    className="group/tab h-auto flex-none cursor-pointer rounded-full border border-transparent px-4 py-2.5 text-white/65 after:hidden transition-[background-color,border-color,color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-[#39dbc0]/45 group-data-[variant=line]/tabs-list:hover:bg-[#17345a] hover:text-white hover:shadow-[0_10px_28px_rgba(0,0,0,0.22)] focus-visible:border-[#78ead7] focus-visible:bg-[#17345a] focus-visible:text-white focus-visible:ring-[#78ead7]/35 data-[state=active]:border-white group-data-[variant=line]/tabs-list:data-[state=active]:bg-white data-[state=active]:text-[#0b1535] data-[state=active]:shadow-[0_10px_30px_rgba(0,0,0,0.2)] data-[state=active]:hover:translate-y-0 data-[state=active]:hover:border-white group-data-[variant=line]/tabs-list:data-[state=active]:hover:bg-white data-[state=active]:hover:text-[#0b1535]"
                   >
                     <span className="grid h-6 w-6 place-items-center rounded-full bg-white/[0.08] text-[#78ead7] transition-colors group-hover/tab:bg-[#39dbc0]/15 group-hover/tab:text-[#8ff3e1] group-data-[state=active]/tab:bg-[#dff7f2] group-data-[state=active]/tab:text-[#087a70]">
                       <Icon className="h-3.5 w-3.5" />
