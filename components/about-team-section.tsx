@@ -1,15 +1,20 @@
-import { Plus, Target, Telescope, Workflow } from "lucide-react";
+import Image from "next/image";
+import { Target, Telescope, Workflow } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
+import affanPortrait from "@/public/Affan.jpeg";
+import wasiqPortrait from "@/public/mohammed-wasiq.png";
 
 const founders = [
   {
     name: "Syed Affan Syed",
+    photo: affanPortrait,
     role: "Founder & CEO",
     highlight: "Business, Sales & Growth",
     bio: "Syed Affan Syed leads NUVA LYF’s business strategy, sales, business development, partnerships and growth. With a B.Tech background, he focuses on understanding the needs of doctors, clinics and healthcare organisations and translating them into business opportunities and product direction across India.",
   },
   {
     name: "Wasiq Mohideen",
+    photo: wasiqPortrait,
     role: "Co-Founder & CTO",
     highlight: "Product, Technology & Development",
     bio: "Wasiq Mohideen leads the complete product and technology development of NUVA LYF. With a B.Tech background, he is responsible for product architecture, software development, technical implementation and the platform’s continuous evolution.",
@@ -36,8 +41,17 @@ export function AboutTeamSection() {
           <SectionHeading eyebrow="Founder-led" title="Meet the people building NUVA LYF." description="Business vision and technology execution working together to build a better digital experience for healthcare providers." align="center" />
           <div className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-2">
             {founders.map((founder)=><article key={founder.name} className="overflow-hidden rounded-[26px] border border-[#dce7e5] bg-white">
-              <div className="grid aspect-[4/3] place-items-center bg-[linear-gradient(135deg,#eef8f6_0%,#f7f8fc_100%)]">
-                <div className="text-center"><span className="mx-auto grid h-16 w-16 place-items-center rounded-full border border-dashed border-[#94bcb5] bg-white text-[#0b6b63]"><Plus className="h-6 w-6"/></span><p className="mt-4 text-sm font-bold text-[#60717e]">Add Photo — {founder.name}</p><span className="mt-1 block text-xs text-[#96a1a9]">Portrait placeholder</span></div>
+              {/* Both portraits are tall studio shots, so the square frame is
+                  anchored to the top to keep faces from being cropped. */}
+              <div className="relative aspect-square bg-[linear-gradient(135deg,#eef8f6_0%,#f7f8fc_100%)]">
+                <Image
+                  src={founder.photo}
+                  alt={`${founder.name}, ${founder.role} of NUVA LYF`}
+                  fill
+                  sizes="(min-width: 768px) 500px, 100vw"
+                  placeholder="blur"
+                  className="object-cover object-top"
+                />
               </div>
               <div className="p-6 sm:p-8">
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#0b8b7f]">{founder.highlight}</p>
