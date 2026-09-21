@@ -35,7 +35,7 @@ export function AboutTeamSection() {
         <div className="site-container">
           <SectionHeading eyebrow="Founder-led" title="Meet the people building NUVA LYF." description="Business vision and technology execution working together to build a better digital experience for healthcare providers." align="center" />
           <div className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-2">
-            {founders.map((founder,index)=><article key={founder.name} className="overflow-hidden rounded-[26px] border border-[#dce7e5] bg-white">
+            {founders.map((founder)=><article key={founder.name} className="overflow-hidden rounded-[26px] border border-[#dce7e5] bg-white">
               <div className="grid aspect-[4/3] place-items-center bg-[linear-gradient(135deg,#eef8f6_0%,#f7f8fc_100%)]">
                 <div className="text-center"><span className="mx-auto grid h-16 w-16 place-items-center rounded-full border border-dashed border-[#94bcb5] bg-white text-[#0b6b63]"><Plus className="h-6 w-6"/></span><p className="mt-4 text-sm font-bold text-[#60717e]">Add Photo — {founder.name}</p><span className="mt-1 block text-xs text-[#96a1a9]">Portrait placeholder</span></div>
               </div>
