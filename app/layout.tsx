@@ -12,10 +12,7 @@ export const metadata: Metadata = {
     "Clinic Software for Doctors",
     "Patient Management Software",
   ],
-  icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-  },
+  // Icons are picked up automatically from app/icon.png and app/apple-icon.png.
 };
 
 export default function RootLayout({

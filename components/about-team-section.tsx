@@ -6,11 +6,12 @@ import wasiqPortrait from "@/public/mohammed-wasiq.png";
 
 const founders = [
   {
-    name: "Syed Affan Syed",
+    name: "Syed Affan Zaid",
+    linkedin: "https://www.linkedin.com/in/syed-affan-816062265/",
     photo: affanPortrait,
     role: "Founder & CEO",
     highlight: "Business, Sales & Growth",
-    bio: "Syed Affan Syed leads NUVA LYF’s business strategy, sales, business development, partnerships and growth. With a B.Tech background, he focuses on understanding the needs of doctors, clinics and healthcare organisations and translating them into business opportunities and product direction across India.",
+    bio: "Syed Affan Zaid leads NUVA LYF’s business strategy, sales, business development, partnerships and growth. With a B.Tech background, he focuses on understanding the needs of doctors, clinics and healthcare organisations and translating them into business opportunities and product direction across India.",
   },
   {
     name: "Wasiq Mohideen",
@@ -58,7 +59,22 @@ export function AboutTeamSection() {
                 <h3 className="mt-3 font-display text-2xl font-semibold text-[#0b1535]">{founder.name}</h3>
                 <p className="mt-1 text-sm font-semibold text-[#5f6d7a]">{founder.role}</p>
                 <p className="mt-5 text-sm leading-7 text-[#647383]">{founder.bio}</p>
-                <span className="mt-6 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#d6e3e0] text-xs font-black text-[#0b6b63]" aria-label={`LinkedIn placeholder for ${founder.name}`}>in</span>
+                {/* Rendered only when a real profile exists - a dead chip is
+                    worse than no chip. */}
+                {founder.linkedin && (
+                  <a
+                    href={founder.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex h-10 items-center gap-2 rounded-full border border-[#d6e3e0] px-4 text-xs font-bold text-[#0b6b63] transition hover:border-[#0b6b63] hover:bg-[#0b6b63] hover:text-white"
+                    aria-label={`${founder.name} on LinkedIn (opens in a new tab)`}
+                  >
+                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.71h.05a4.17 4.17 0 0 1 3.75-2.06c4 0 4.75 2.64 4.75 6.07V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21h-4V9Z" />
+                    </svg>
+                    LinkedIn
+                  </a>
+                )}
               </div>
             </article>)}
           </div>

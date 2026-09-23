@@ -1,22 +1,33 @@
-import { cn } from "@/lib/utils";
+import Image from "next/image";
 
-export function BrandLogo({ inverse = false, compact = false }: { inverse?: boolean; compact?: boolean }) {
+import { cn } from "@/lib/utils";
+import logoDark from "@/public/nuva-lyf-logo.png";
+import logoLight from "@/public/nuva-lyf-logo-light.png";
+
+/**
+ * Two variants of the same artwork.
+ *
+ * The supplied file is dark ink on transparent, drawn for light surfaces. The
+ * header and footer are deep navy, where that ink disappears. Rather than
+ * flattening the mark with a `brightness(0) invert(1)` filter - which would
+ * throw away the teal stethoscope and the green leaf - the light variant
+ * recolours only the low-chroma ink to white and leaves the brand colours
+ * untouched. Both files are the same 2000x518 source.
+ */
+export function BrandLogo({ inverse = false }: { inverse?: boolean }) {
   return (
-    <a href="#home" className="inline-flex items-center gap-3" aria-label="NUVA LYF home">
-      <svg className="h-10 w-10 shrink-0" viewBox="0 0 64 64" role="img" aria-label="NUVA LYF mark">
-        <defs>
-          <linearGradient id="nuva-brand-gradient" x1="10" y1="8" x2="56" y2="56">
-            <stop stopColor="#39dbc0" />
-            <stop offset="1" stopColor="#7d86ff" />
-          </linearGradient>
-        </defs>
-        <rect width="64" height="64" rx="19" fill={inverse ? "#ffffff" : "#0b1535"} />
-        <path d="M17 43V21l30 22V21" fill="none" stroke="url(#nuva-brand-gradient)" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="48" cy="15" r="3" fill="#39dbc0" />
-      </svg>
-      {!compact && (
-        <span className={cn("text-[1.05rem] font-extrabold tracking-[0.16em]", inverse ? "text-white" : "text-[#0b1535]")}>NUVA LYF</span>
-      )}
+    <a
+      href="#home"
+      className="inline-flex items-center rounded-md transition-opacity hover:opacity-80"
+      aria-label="NUVA LYF home"
+    >
+      <Image
+        src={inverse ? logoLight : logoDark}
+        alt="NUVA LYF"
+        priority
+        sizes="220px"
+        className={cn("h-8 w-auto object-contain sm:h-9")}
+      />
     </a>
   );
 }
