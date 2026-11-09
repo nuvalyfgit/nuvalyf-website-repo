@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { NativeSelect, NativeSelectOption } from "@/components/ui/native-select";
 import { SectionHeading } from "@/components/section-heading";
+import { contact, reach } from "@/data/site-content";
 import {
   demoRequestSchema,
   type DemoRequestFieldErrors,
@@ -21,6 +22,13 @@ const fields = [
   { name: "city", label: "City", type: "text", placeholder: "Your city" },
   { name: "state", label: "State", type: "text", placeholder: "Your state" },
 ] as const;
+
+const contactItems = [
+  { Icon: MapPin, text: `Serving healthcare providers in ${reach.regions.map((r) => r.name).join(", ")} ${reach.more.label}` },
+  { Icon: Mail, text: contact.email, href: `mailto:${contact.email}` },
+  { Icon: Phone, text: contact.phone.display, href: `tel:${contact.phone.tel}` },
+  { Icon: MessageCircle, text: `WhatsApp ${contact.whatsapp.display}`, href: contact.whatsapp.href, external: true },
+];
 
 type Status = "idle" | "submitting" | "success";
 
@@ -80,12 +88,13 @@ export function DemoForm() {
         <div>
           <SectionHeading eyebrow="Book a demonstration" title="Let’s modernise your clinic." description="See how NUVA LYF can simplify clinical workflows, everyday operations and patient communication for your team." />
           <div className="mt-10 space-y-4">
-            {[
-              [MapPin, "Serving healthcare providers across India"],
-              [Mail, "Business email — add your address"],
-              [Phone, "Phone number — add your number"],
-              [MessageCircle, "WhatsApp — add your business number"],
-            ].map(([Icon,text])=>{const IconComponent=Icon as typeof MapPin;return <div key={text as string} className="flex items-center gap-3 text-sm font-semibold text-[#526173]"><span className="grid h-9 w-9 place-items-center rounded-xl bg-white text-[#0b6b63]"><IconComponent className="h-4 w-4"/></span>{text as string}</div>})}
+            {contactItems.map(({ Icon, text, href, external }) => {
+              const content = <><span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-[#0b6b63]"><Icon className="h-4 w-4"/></span><span className="break-all">{text}</span></>;
+              const className = "flex items-center gap-3 text-sm font-semibold text-[#526173]";
+              return href
+                ? <a key={text} href={href} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className={`${className} transition hover:text-[#0b6b63]`}>{content}</a>
+                : <div key={text} className={className}>{content}</div>;
+            })}
           </div>
         </div>
         <form onSubmit={handleSubmit} noValidate className="rounded-[28px] border border-[#d8e6e3] bg-white p-5 shadow-[0_24px_70px_rgba(15,68,62,0.08)] sm:p-8">

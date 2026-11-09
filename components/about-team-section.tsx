@@ -30,7 +30,7 @@ export function AboutTeamSection() {
           <SectionHeading eyebrow="About NUVA LYF" title="Building better digital foundations for healthcare." description="Healthcare professionals should spend more time caring for patients and less time managing disconnected systems. NUVA LYF is building a simple, secure digital foundation for clinics across India." inverse />
           <div className="reveal-stagger grid gap-4 sm:grid-cols-3">
             {[
-              [Target,"Our mission","Make modern clinic technology simple, secure and accessible across India."],
+              [Target,"Our mission","Make modern clinic technology simple, secure and accessible across India, the UAE and beyond."],
               [Telescope,"Our vision","Help create a more connected and efficient healthcare ecosystem."],
               [Workflow,"Our approach","Build around real clinic workflows instead of forcing complex software."],
             ].map(([Icon,title,description])=>{const IconComponent=Icon as typeof Target;return <article key={title as string} className="card-lift rounded-[22px] border border-white/10 bg-white/[0.045] p-5"><IconComponent className="h-6 w-6 text-[#39dbc0]"/><h3 className="mt-8 font-bold text-white">{title as string}</h3><p className="mt-3 text-sm leading-6 text-white/55">{description as string}</p></article>})}

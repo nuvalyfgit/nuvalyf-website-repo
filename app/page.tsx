@@ -5,6 +5,7 @@ import { FinalCta } from "@/components/final-cta";
 import { Hero } from "@/components/hero";
 import { JourneySection } from "@/components/journey-section";
 import { PlatformSection } from "@/components/platform-section";
+import { ReachSection } from "@/components/reach-section";
 import { SecuritySection } from "@/components/security-section";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -19,6 +20,7 @@ export default function Home() {
       <JourneySection />
       <PlatformSection />
       <SecuritySection />
+      <ReachSection />
       <SolutionsSection />
       <AboutTeamSection />
       <FinalCta />

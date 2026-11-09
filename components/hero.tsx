@@ -1,4 +1,5 @@
-import { ArrowRight, Check, ChevronRight, Clock3, IndianRupee, CalendarDays, HeartPulse, UsersRound } from "lucide-react";
+import { ArrowRight, Check, ChevronRight, Clock3, IndianRupee, CalendarDays, Globe2, HeartPulse, UsersRound } from "lucide-react";
+import { reach } from "@/data/site-content";
 import { Button } from "@/components/ui/button";
 import { TiltStage } from "@/components/tilt-stage";
 
@@ -137,7 +138,7 @@ export function Hero() {
       <div className="site-container relative grid items-center gap-16 pb-28 lg:grid-cols-[1fr_1fr] lg:gap-12 lg:pb-36">
         <div>
           <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.06] px-3.5 py-2 text-xs font-bold text-[#9be8da] backdrop-blur">
-            <span className="h-2 w-2 rounded-full bg-[#39c9af]" /> Modern clinic technology for India
+            <span className="h-2 w-2 rounded-full bg-[#39c9af]" /> Modern clinic technology for India &amp; the UAE
           </div>
 
           <h1 className="t-display font-display text-white">
@@ -147,7 +148,7 @@ export function Hero() {
           </h1>
 
           <p className="t-lead mt-8 max-w-xl text-white/60">
-            NUVA LYF brings patient records, appointments, consultations, prescriptions, billing and patient communication together in one secure platform for modern clinics across India.
+            NUVA LYF brings patient records, appointments, consultations, prescriptions, billing and patient communication together in one secure platform for modern clinics across India, the UAE and beyond.
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -176,8 +177,21 @@ export function Hero() {
       <div className="pointer-events-none absolute bottom-0 left-1/2 h-24 w-px -translate-x-1/2 bg-[linear-gradient(180deg,transparent,rgba(57,219,192,0.55))]" />
 
       <div className="relative border-t border-white/8 bg-white/[0.02] backdrop-blur">
-        <div className="site-container flex flex-col items-center justify-between gap-4 py-6 text-center sm:flex-row sm:text-left">
-          <p className="text-sm font-medium text-white/60">Modern clinic technology designed for healthcare providers across India.</p>
+        <div className="site-container flex flex-col items-center justify-between gap-5 py-6 text-center lg:flex-row lg:text-left">
+          <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
+            <div className="flex items-baseline gap-2.5">
+              <strong className="font-display text-3xl font-bold text-[#39dbc0]">{reach.clients.value}{reach.clients.suffix}</strong>
+              <span className="text-sm font-medium text-white/60">{reach.clients.label}</span>
+            </div>
+            <span className="hidden h-8 w-px bg-white/12 sm:block" aria-hidden="true" />
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <span className="mr-1 flex items-center gap-1.5 text-sm font-medium text-white/60"><Globe2 className="h-4 w-4 text-[#39dbc0]" />Serving</span>
+              {reach.regions.map((region) => (
+                <span key={region.code} className="rounded-full border border-white/12 bg-white/[0.06] px-3 py-1 text-xs font-bold text-white">{region.name}</span>
+              ))}
+              <span className="text-xs font-semibold text-white/55">{reach.more.label}</span>
+            </div>
+          </div>
           <div className="flex items-center gap-2.5 text-sm font-bold text-white">
             <span className="h-1.5 w-1.5 rounded-full bg-[#39dbc0]" />
             One patient. One connected record.

@@ -7,6 +7,23 @@ export const navigation = [
   { label: "Team", href: "#team" },
 ];
 
+/** Single source for contact details used in the contact panel and footer. */
+export const contact = {
+  email: "business@nuvalyf.com",
+  phone: { display: "+91 93845 30408", tel: "+919384530408" },
+  whatsapp: { display: "+91 93845 30408", href: "https://wa.me/919384530408" },
+};
+
+/** Client count and supported regions — hero strip, reach section, contact panel. */
+export const reach = {
+  clients: { value: 50, suffix: "+", label: "Clinics onboarded" },
+  regions: [
+    { code: "IN", name: "India", fullName: "India", inSentence: "India" },
+    { code: "AE", name: "UAE", fullName: "United Arab Emirates", inSentence: "the UAE" },
+  ],
+  more: { label: "& more", description: "Expanding to new regions" },
+};
+
 export const features = [
   { icon: "users", title: "Patient Management", description: "Registration, duplicate checks, medical history and one clear patient record." },
   { icon: "calendar", title: "Appointments", description: "Manage bookings, walk-ins, follow-ups and appointment status from one view." },
