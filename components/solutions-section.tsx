@@ -1,6 +1,7 @@
 import { ArrowUpRight, Building2, CheckCircle2, CircleDot, HeartHandshake, Hospital, Stethoscope } from "lucide-react";
 import { differentiators, personas, specialties } from "@/data/site-content";
 import { SectionHeading } from "@/components/section-heading";
+import { slugForSpecialty } from "@/data/more-content";
 
 const personaIcons = [Stethoscope, Building2, HeartHandshake, Hospital, CircleDot];
 
@@ -14,16 +15,16 @@ export function SolutionsSection() {
             {personas.map((persona,index)=>{const Icon=personaIcons[index];return <article key={persona.title} className={`card-lift rounded-[22px] p-6 ${index===0?"bg-[linear-gradient(160deg,#0b1535_0%,#084b45_100%)] text-white":"border border-[#dce7e5] bg-white text-[#0b1535]"}`}><Icon className={`h-6 w-6 ${index===0?"text-[#9be8da]":"text-[#0b6b63]"}`}/><h3 className="mt-8 text-lg font-bold">{persona.title}</h3><p className={`mt-3 text-sm leading-6 ${index===0?"text-white/75":"text-[#647383]"}`}>{persona.description}</p><ArrowUpRight className={`mt-7 h-5 w-5 ${index===0?"text-[#9be8da]":"text-[#9aa5ae]"}`}/></article>})}
           </div>
           <div className="mt-20 grid gap-10 lg:grid-cols-[.62fr_1fr]">
-            <SectionHeading eyebrow="Flexible by specialty" title="Built for the way you practise." description="The same connected core can support a wide range of outpatient care settings without claiming specialty modules that have not been built." />
+            <SectionHeading eyebrow="Flexible by specialty" title="Built for the way you practise." description="The same connected core supports a wide range of outpatient settings. Pick your specialty to see how it fits your day." />
             <div className="reveal-stagger grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {specialties.map((specialty)=><div key={specialty} className="flex items-center gap-2.5 rounded-xl border border-[#dce7e5] bg-white px-4 py-3 text-sm font-semibold text-[#3f4e5f]"><CheckCircle2 className="h-4 w-4 shrink-0 text-[#0b8b7f]"/>{specialty}</div>)}
+              {specialties.map((specialty)=><a key={specialty} href={`/specialties/${slugForSpecialty(specialty)}`} className="group flex items-center gap-2.5 rounded-xl border border-[#dce7e5] bg-white px-4 py-3 text-sm font-semibold text-[#3f4e5f] transition hover:border-[#0b6b63] hover:text-[#0b6b63]"><CheckCircle2 className="h-4 w-4 shrink-0 text-[#0b8b7f]"/>{specialty}<ArrowUpRight className="ml-auto h-4 w-4 opacity-0 transition group-hover:opacity-100"/></a>)}
             </div>
           </div>
         </div>
       </section>
       <section className="bg-white py-24 sm:py-32">
         <div className="site-container">
-          <SectionHeading eyebrow="Why NUVA LYF" title="Built for healthcare. Designed for simplicity." align="center" />
+          <SectionHeading eyebrow="Why NuvaLyf" title="Built for healthcare. Designed for simplicity." align="center" />
           <div className="reveal-stagger mt-14 grid gap-px overflow-hidden rounded-[26px] border border-[#e1ebe9] bg-[#e1ebe9] sm:grid-cols-2 lg:grid-cols-5">
             {differentiators.map((item,index)=><div key={item.title} className="bg-white p-6"><span className="text-3xl font-light text-[#c2d3cf]">0{index+1}</span><h3 className="mt-10 text-base font-bold text-[#0b1535]">{item.title}</h3><p className="mt-2 text-sm leading-6 text-[#647383]">{item.description}</p></div>)}
           </div>

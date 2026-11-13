@@ -2,6 +2,7 @@ import { ArrowRight, Check, ChevronRight, Clock3, IndianRupee, CalendarDays, Glo
 import { reach } from "@/data/site-content";
 import { Button } from "@/components/ui/button";
 import { TiltStage } from "@/components/tilt-stage";
+import { VideoButton } from "@/components/video-button";
 
 const stats = [
   ["Today’s patients", "24", "+4"],
@@ -138,17 +139,17 @@ export function Hero() {
       <div className="site-container relative grid items-center gap-16 pb-28 lg:grid-cols-[1fr_1fr] lg:gap-12 lg:pb-36">
         <div>
           <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.06] px-3.5 py-2 text-xs font-bold text-[#9be8da] backdrop-blur">
-            <span className="h-2 w-2 rounded-full bg-[#39c9af]" /> Modern clinic technology for India &amp; the UAE
+            <span className="rounded-full bg-[#39dbc0] px-2 py-0.5 text-[10px] font-black text-[#07231f]">SOON</span> DocConnect: online booking with a live queue
           </div>
 
           <h1 className="t-display font-display text-white">
-            Smarter clinics.
+            Run your clinic.
             <br />
-            <span className="bg-[linear-gradient(100deg,#39dbc0_0%,#7fe6d2_38%,#9aa6ff_100%)] bg-clip-text text-transparent">Better connected care.</span>
+            <span className="bg-[linear-gradient(100deg,#39dbc0_0%,#7fe6d2_38%,#9aa6ff_100%)] bg-clip-text text-transparent">Fill it with patients.</span>
           </h1>
 
           <p className="t-lead mt-8 max-w-xl text-white/60">
-            NUVA LYF brings patient records, appointments, consultations, prescriptions, billing and patient communication together in one secure platform for modern clinics across India, the UAE and beyond.
+            NuvaLyf EMR brings records, queue, prescriptions and billing into one secure platform. DocConnect lets patients book online and track their turn live. Use them together, or connect DocConnect to the EMR you already have.
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -156,12 +157,14 @@ export function Hero() {
               <a href="#contact">Book a Demo <ArrowRight /></a>
             </Button>
             <Button asChild variant="outline" size="lg" className="h-13 rounded-full border-white/18 bg-white/[0.04] px-8 text-[15px] font-semibold text-white backdrop-blur transition hover:bg-white/10 hover:text-white">
-              <a href="#platform">Explore the Platform <ChevronRight /></a>
+              <a href="/docconnect">See DocConnect <ChevronRight /></a>
             </Button>
           </div>
 
-          <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-white/60">
-            {["Built for outpatient care", "Role-based access", "Clinic data control"].map((item) => (
+          <VideoButton className="mt-6" />
+
+          <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-white/60">
+            {["NuvaLyf EMR for clinic teams", "DocConnect for patients", "Works with your existing EMR"].map((item) => (
               <span key={item} className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-[#39dbc0]" />
                 {item}

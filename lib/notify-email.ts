@@ -3,6 +3,7 @@ import { Resend } from "resend";
 import type { DemoRequest } from "@/lib/demo-request";
 
 const FIELD_LABELS: Array<[keyof DemoRequest, string]> = [
+  ["product", "Interested in"],
   ["fullName", "Full name"],
   ["email", "Work email"],
   ["mobile", "Mobile"],
@@ -11,6 +12,7 @@ const FIELD_LABELS: Array<[keyof DemoRequest, string]> = [
   ["state", "State"],
   ["specialty", "Medical specialty"],
   ["doctors", "Number of doctors"],
+  ["preferredSlot", "Preferred demo time"],
   ["message", "Message"],
 ];
 
@@ -36,7 +38,7 @@ function buildHtml(submission: DemoRequest, submittedAt: string): string {
   <table role="presentation" style="width:100%;max-width:640px;margin:0 auto;border-collapse:collapse;background:#ffffff;border:1px solid #dce7e5;border-radius:16px;overflow:hidden;">
     <tr><td style="padding:24px 16px;background:#0b6b63;">
       <p style="margin:0;font:700 18px system-ui,sans-serif;color:#ffffff;">New demo request</p>
-      <p style="margin:6px 0 0;font:400 13px system-ui,sans-serif;color:#c7e8e3;">NUVA LYF website &middot; ${escapeHtml(submittedAt)}</p>
+      <p style="margin:6px 0 0;font:400 13px system-ui,sans-serif;color:#c7e8e3;">NuvaLyf website &middot; ${escapeHtml(submittedAt)}</p>
     </td></tr>
     <tr><td style="padding:8px 0;"><table role="presentation" style="width:100%;border-collapse:collapse;">${rows}</table></td></tr>
     <tr><td style="padding:16px;background:#f7fbfa;">
@@ -50,7 +52,7 @@ function buildText(submission: DemoRequest, submittedAt: string): string {
   const lines = FIELD_LABELS.map(
     ([key, label]) => `${label}: ${String(submission[key] ?? "").trim() || "—"}`,
   );
-  return [`New demo request — NUVA LYF website`, submittedAt, "", ...lines].join("\n");
+  return [`New demo request — NuvaLyf website`, submittedAt, "", ...lines].join("\n");
 }
 
 /** Emails the demo request to the configured inbox via Resend. */
@@ -65,7 +67,7 @@ export async function sendNotificationEmail(
 
   // Resend's shared sender works without a verified domain, which keeps the
   // form usable before DNS is configured.
-  const from = process.env.NOTIFY_EMAIL_FROM ?? "NUVA LYF <onboarding@resend.dev>";
+  const from = process.env.NOTIFY_EMAIL_FROM ?? "NuvaLyf <onboarding@resend.dev>";
 
   const { error } = await new Resend(apiKey).emails.send({
     from,

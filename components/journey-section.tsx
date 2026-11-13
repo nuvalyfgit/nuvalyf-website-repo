@@ -40,7 +40,7 @@ export function JourneySection() {
         <SectionHeading
           eyebrow="Built around the patient journey"
           title="One smooth path from arrival to follow-up."
-          description="NUVA LYF helps clinics manage the outpatient journey without relying on disconnected systems, paper notes or scattered tools."
+          description="NuvaLyf helps clinics manage the outpatient journey without relying on disconnected systems, paper notes or scattered tools."
           inverse
         />
 

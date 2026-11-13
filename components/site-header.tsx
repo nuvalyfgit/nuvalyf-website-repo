@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { BrandLogo } from "@/components/brand-logo";
 import { Button } from "@/components/ui/button";
-import { navigation } from "@/data/site-content";
+import { emrSignInUrl, navigation } from "@/data/site-content";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -26,9 +26,11 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-5 lg:flex">
+          <a href="/ar" lang="ar" className="text-sm font-semibold text-white/70 transition hover:text-white">عربي</a>
+          <a href={emrSignInUrl} className="text-sm font-semibold text-white/70 transition hover:text-white">Sign in</a>
           <Button asChild size="lg" className="rounded-full bg-[#39dbc0] px-6 font-bold text-[#07231f] shadow-none transition hover:bg-[#5ce7d0]">
-            <a href="#contact">Book a Demo</a>
+            <a href="/#contact">Book a Demo</a>
           </Button>
         </div>
 
@@ -57,8 +59,10 @@ export function SiteHeader() {
                 {item.label}
               </a>
             ))}
+            <a href="/ar" lang="ar" className="border-b border-white/6 py-3.5 text-base font-semibold text-white/80 transition hover:text-white">عربي</a>
+            <a href={emrSignInUrl} className="border-b border-white/6 py-3.5 text-base font-semibold text-white/80 transition hover:text-white">Sign in</a>
             <Button asChild className="mt-5 h-11 rounded-full bg-[#39dbc0] font-bold text-[#07231f] hover:bg-[#5ce7d0]">
-              <a href="#contact" onClick={() => setOpen(false)}>Book a Demo</a>
+              <a href="/#contact" onClick={() => setOpen(false)}>Book a Demo</a>
             </Button>
           </div>
         </nav>

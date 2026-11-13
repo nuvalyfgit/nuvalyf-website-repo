@@ -1,0 +1,45 @@
+/** Set this to a YouTube embed URL (https://www.youtube.com/embed/...) once the demo video exists. */
+export const demoVideoUrl = "";
+
+export const faqs: [string, string][] = [
+  ["Who owns the clinic's data?", "You do. Every record stays under your clinic's control and can be exported at any time, including original documents. We never sell data."],
+  ["Can we move from our current software or paper records?", "Yes. We import patients and history from CSV or Excel, check for duplicates, and help your team through the switch."],
+  ["How long does setup take?", "Most clinics are live within a week: account setup, data import, a training session for doctors and front desk, then go live."],
+  ["Do I need DocConnect to use the EMR, or the other way round?", "No. Use the EMR on its own, DocConnect on its own with your existing EMR, or both together as one package."],
+  ["What happens if the internet goes down?", "Your data is safe in the cloud. Walk-ins can still be noted at the desk and entered once you're back online; nothing already saved is lost."],
+  ["Is patient data secure?", "Yes. Role-based access, clinic data separation, encrypted connections, audit trails and regular backups are built in."],
+  ["Do you train our staff and offer support?", "Yes. Training is included at setup, and support is available on WhatsApp, phone and email."],
+  ["Which countries do you support?", "India and the UAE today, with more regions coming. The product supports local currency, tax and phone formats."],
+];
+
+export const patientFaqs: [string, string][] = [
+  ["Is DocConnect free for patients?", "Yes. Searching and booking are free. You pay the doctor's consultation fee as usual."],
+  ["How does the live queue work?", "After booking, you get a token. The app shows how many people are ahead of you and when to leave home, and updates if the doctor is running late."],
+  ["Can I book for my family?", "Yes. Add family members to your account and book for any of them."],
+  ["Where do I see my prescription?", "Once the doctor finalises it, the prescription appears in your app to view, download or share."],
+];
+
+export type Specialty = {
+  slug: string;
+  name: string;
+  headline: string;
+  intro: string;
+  points: [string, string][];
+};
+
+export const specialtyPages: Specialty[] = [
+  { slug: "general-medicine", name: "General Medicine", headline: "Busy OPD, calm front desk.", intro: "Handle high patient volumes, quick follow-ups and walk-ins without the crowd at reception.", points: [["Fast consultations", "Patient summary, vitals and past visits on one screen."], ["Walk-ins and bookings, one line", "Online bookings and walk-ins share the same live queue."], ["Follow-up reminders", "Patients are reminded when their review is due."]] },
+  { slug: "pediatrics", name: "Pediatrics", headline: "Built for parents and little patients.", intro: "Parents book for every child from one account and wait at home, not in a room full of coughs.", points: [["Family accounts", "One parent account, many child profiles."], ["Growth and vaccination notes", "Keep weight, height and vaccine history with each visit."], ["Weight-based dosing notes", "Prescriptions with clear dosage instructions for parents."]] },
+  { slug: "gynecology", name: "Gynecology", headline: "Private, organised care for women.", intro: "Keep pregnancy visits, scans and reports together, with privacy built into every step.", points: [["Visit history at a glance", "Every consultation, scan and report in one record."], ["Private documents", "Reports and scans stored with controlled access."], ["Scheduled reviews", "Regular check-ups booked and reminded automatically."]] },
+  { slug: "dermatology", name: "Dermatology", headline: "Track every visit, photo and plan.", intro: "Skin treatments run over many sessions. Keep notes, photos and prescriptions connected.", points: [["Clinical photos", "Attach before and after photos to the patient record."], ["Session follow-ups", "Book and remind patients for each treatment session."], ["Repeat prescriptions", "Reuse past prescriptions in a couple of clicks."]] },
+  { slug: "orthopedics", name: "Orthopedics", headline: "From X-ray to recovery, in one record.", intro: "Keep imaging, procedure notes and rehab follow-ups linked to the right patient.", points: [["Imaging and reports", "X-rays and MRI reports stored with each visit."], ["Recovery follow-ups", "Post-procedure reviews booked and tracked."], ["Clear patient instructions", "Printed and shared prescriptions with dosage guidance."]] },
+  { slug: "ent", name: "ENT", headline: "Quick ENT visits, clear records.", intro: "Short consultations, many patients. Keep the queue moving and the notes complete.", points: [["Structured templates", "Common ENT findings captured quickly."], ["Live queue", "Patients see their turn and arrive on time."], ["Reports and audiograms", "Test results attached to the patient record."]] },
+  { slug: "diabetology", name: "Diabetology", headline: "Long-term care, clearly tracked.", intro: "Diabetes care is a long relationship. See trends and keep patients coming back on time.", points: [["Vitals over time", "Sugar levels, BP and weight across visits."], ["Regular review reminders", "Patients are reminded for every check-up."], ["Repeat prescriptions", "Ongoing medicines renewed quickly and safely."]] },
+  { slug: "cardiology", name: "Cardiology", headline: "Critical history, always in view.", intro: "Allergies, conditions and past reports in front of the doctor before the patient sits down.", points: [["Prominent allergies and conditions", "Key risks shown at the top of every record."], ["ECG and echo reports", "Reports stored and linked to each visit."], ["Medicine warnings", "Alerts for allergies and duplicate medicines."]] },
+  { slug: "dental", name: "Dental", headline: "Chairs full, schedule on time.", intro: "Dental work runs over several appointments. Keep each sitting booked, tracked and billed.", points: [["Multi-sitting treatments", "Book and track every appointment in a treatment plan."], ["Billing per procedure", "Invoices and payments linked to each visit."], ["Online booking", "New patients book a chair directly through DocConnect."]] },
+  { slug: "ophthalmology", name: "Ophthalmology", headline: "Clear vision of every patient.", intro: "Keep refraction notes, test results and follow-ups organised across visits.", points: [["Test results in the record", "Vision tests and reports attached to each visit."], ["Pre and post-op reviews", "Follow-ups booked and reminded automatically."], ["Smooth OPD flow", "Patients wait at home and arrive when it's their turn."]] },
+  { slug: "physiotherapy", name: "Physiotherapy", headline: "Every session booked, every patient back.", intro: "Recovery depends on attendance. Make booking and rebooking sessions effortless.", points: [["Session packages", "Track sessions completed and remaining."], ["Easy rebooking", "Patients book their next session online."], ["Progress notes", "Notes for every session in one timeline."]] },
+  { slug: "specialty-clinics", name: "Specialty Clinics", headline: "Flexible enough for how you practise.", intro: "The same connected core adapts to many outpatient settings and multi-doctor clinics.", points: [["Role-based access", "Doctors, nurses and front desk see what they need."], ["Multi-doctor queues", "Each doctor has their own live queue."], ["Your data, exportable", "Export records and documents whenever you need."]] },
+];
+
+export const slugForSpecialty = (name: string) => specialtyPages.find((s) => s.name === name)?.slug;

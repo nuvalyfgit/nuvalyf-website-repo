@@ -1,6 +1,10 @@
 import { AboutTeamSection } from "@/components/about-team-section";
+import { DocConnectSection } from "@/components/docconnect-section";
+import { WhatsAppButton } from "@/components/whatsapp-button";
 import { DemoForm } from "@/components/demo-form";
 import { FeaturesSection } from "@/components/features-section";
+import { FaqSection } from "@/components/faq-section";
+import { MobileActionBar } from "@/components/mobile-action-bar";
 import { FinalCta } from "@/components/final-cta";
 import { Hero } from "@/components/hero";
 import { JourneySection } from "@/components/journey-section";
@@ -19,13 +23,17 @@ export default function Home() {
       <FeaturesSection />
       <JourneySection />
       <PlatformSection />
+      <DocConnectSection />
       <SecuritySection />
       <ReachSection />
       <SolutionsSection />
       <AboutTeamSection />
+      <FaqSection />
       <FinalCta />
       <DemoForm />
       <SiteFooter />
+      <WhatsAppButton />
+      <MobileActionBar />
     </main>
   );
 }

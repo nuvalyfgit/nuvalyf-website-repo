@@ -61,7 +61,6 @@ function CountUp({ value, suffix = "", duration = 1800 }: { value: number; suffi
     const node = ref.current;
     if (!node || reducedMotion()) return;
     let frame = 0;
-    node.textContent = `0${suffix}`;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return;
@@ -117,7 +116,7 @@ function NetworkMap() {
         <div className="plane relative rounded-[30px] border border-white/12 bg-white/[0.05] p-2 shadow-[0_40px_120px_rgba(0,0,0,0.5)] backdrop-blur-xl">
           <div className="relative overflow-hidden rounded-[24px] bg-[#0b1535]">
             <div className="flex items-center justify-between border-b border-white/8 px-4 py-3 sm:px-5">
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#9be8da]">NUVA LYF network</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#9be8da]">NuvaLyf network</p>
               <span className="flex items-center gap-2 text-[11px] font-bold text-white/70">
                 <LiveDot /> Live in {reach.regions.length} countries
               </span>
@@ -131,7 +130,7 @@ function NetworkMap() {
               />
               <div className="reach-sweep pointer-events-none absolute inset-0" aria-hidden="true" />
 
-              <svg viewBox="0 0 600 400" className="absolute inset-0 h-full w-full" role="img" aria-label={`NUVA LYF is live in ${reach.regions.map((r) => r.fullName).join(" and ")}, and expanding to new regions`}>
+              <svg viewBox="0 0 600 400" className="absolute inset-0 h-full w-full" role="img" aria-label={`NuvaLyf is live in ${reach.regions.map((r) => r.fullName).join(" and ")}, and expanding to new regions`}>
                 <defs>
                   <linearGradient id="reach-arc-gradient" x1="0" y1="0" x2="1" y2="0">
                     <stop offset="0" stopColor="#39dbc0" />
@@ -254,7 +253,7 @@ export function ReachSection() {
           <SectionHeading
             eyebrow="Our reach"
             title="Trusted by clinics across borders."
-            description={`Healthcare teams in ${reach.regions.map((r) => r.inSentence).join(" and ")} run their everyday clinic operations on NUVA LYF — and we’re expanding into new regions.`}
+            description={`Healthcare teams in ${reach.regions.map((r) => r.inSentence).join(" and ")} run their everyday clinic operations on NuvaLyf — and we’re expanding into new regions.`}
             inverse
           />
 

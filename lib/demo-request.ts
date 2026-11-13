@@ -5,6 +5,7 @@ import { z } from "zod";
  * validation and by the API route as the authoritative server-side check.
  */
 export const demoRequestSchema = z.object({
+  product: z.string().trim().max(60).optional().default(""),
   fullName: z.string().trim().min(2, "Please enter your full name.").max(120),
   email: z
     .string()
@@ -23,6 +24,7 @@ export const demoRequestSchema = z.object({
   state: z.string().trim().min(2, "Please enter your state.").max(80),
   specialty: z.string().trim().min(1, "Please select a medical specialty.").max(80),
   doctors: z.string().trim().min(1, "Please select the number of doctors.").max(40),
+  preferredSlot: z.string().trim().max(120).optional().default(""),
   message: z.string().trim().max(2000).optional().default(""),
   // Spam trap. Real users never see this field, so any value means a bot.
   // Deliberately permissive: the API route checks it *after* validation so a

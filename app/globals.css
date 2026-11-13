@@ -115,6 +115,6 @@ button, input, textarea, select { font: inherit; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
 
-/* NUVA LYF platform selector: preserve contrast and make interactive states obvious. */
+/* NuvaLyf platform selector: preserve contrast and make interactive states obvious. */
 [data-slot="tabs-trigger"] { -webkit-tap-highlight-color: transparent; }
 [data-slot="tabs-trigger"]:focus-visible { outline: none; }

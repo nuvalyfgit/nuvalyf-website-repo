@@ -19,11 +19,11 @@ export function BrandLogo({ inverse = false }: { inverse?: boolean }) {
     <a
       href="#home"
       className="inline-flex items-center rounded-md transition-opacity hover:opacity-80"
-      aria-label="NUVA LYF home"
+      aria-label="NuvaLyf home"
     >
       <Image
         src={inverse ? logoLight : logoDark}
-        alt="NUVA LYF"
+        alt="NuvaLyf"
         priority
         sizes="220px"
         className={cn("h-8 w-auto object-contain sm:h-9")}

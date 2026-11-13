@@ -11,14 +11,14 @@ const founders = [
     photo: affanPortrait,
     role: "Founder & CEO",
     highlight: "Business, Sales & Growth",
-    bio: "Syed Affan Zaid leads NUVA LYF’s business strategy, sales, business development, partnerships and growth. With a B.Tech background, he focuses on understanding the needs of doctors, clinics and healthcare organisations and translating them into business opportunities and product direction across India.",
+    bio: "Syed Affan Zaid leads NuvaLyf’s business strategy, sales, business development, partnerships and growth. With a B.Tech background, he focuses on understanding the needs of doctors, clinics and healthcare organisations and translating them into business opportunities and product direction across India.",
   },
   {
     name: "Wasiq Mohideen",
     photo: wasiqPortrait,
     role: "Co-Founder & CTO",
     highlight: "Product, Technology & Development",
-    bio: "Wasiq Mohideen leads the complete product and technology development of NUVA LYF. With a B.Tech background, he is responsible for product architecture, software development, technical implementation and the platform’s continuous evolution.",
+    bio: "Wasiq Mohideen leads the complete product and technology development of NuvaLyf. With a B.Tech background, he is responsible for product architecture, software development, technical implementation and the platform’s continuous evolution.",
   },
 ];
 
@@ -27,7 +27,7 @@ export function AboutTeamSection() {
     <>
       <section id="about" className="grain relative overflow-hidden bg-[#070d24] py-24 sm:py-32">
         <div className="site-container grid gap-14 lg:grid-cols-[.9fr_1.1fr]">
-          <SectionHeading eyebrow="About NUVA LYF" title="Building better digital foundations for healthcare." description="Healthcare professionals should spend more time caring for patients and less time managing disconnected systems. NUVA LYF is building a simple, secure digital foundation for clinics across India." inverse />
+          <SectionHeading eyebrow="About NuvaLyf" title="Building better digital foundations for healthcare." description="Healthcare professionals should spend more time caring for patients and less time managing disconnected systems. NuvaLyf is building a simple, secure digital foundation for clinics across India." inverse />
           <div className="reveal-stagger grid gap-4 sm:grid-cols-3">
             {[
               [Target,"Our mission","Make modern clinic technology simple, secure and accessible across India, the UAE and beyond."],
@@ -39,7 +39,7 @@ export function AboutTeamSection() {
       </section>
       <section id="team" className="bg-[#f9fcfb] py-24 sm:py-32">
         <div className="site-container">
-          <SectionHeading eyebrow="Founder-led" title="Meet the people building NUVA LYF." description="Business vision and technology execution working together to build a better digital experience for healthcare providers." align="center" />
+          <SectionHeading eyebrow="Founder-led" title="Meet the people building NuvaLyf." description="Business vision and technology execution working together to build a better digital experience for healthcare providers." align="center" />
           <div className="reveal-stagger mx-auto mt-16 grid max-w-5xl gap-6 md:grid-cols-2">
             {founders.map((founder)=><article key={founder.name} className="card-lift overflow-hidden rounded-[26px] border border-[#e1ebe9] bg-white">
               {/* Both portraits are tall studio shots, so the square frame is
@@ -47,7 +47,7 @@ export function AboutTeamSection() {
               <div className="relative aspect-square bg-[linear-gradient(135deg,#eef8f6_0%,#f7f8fc_100%)]">
                 <Image
                   src={founder.photo}
-                  alt={`${founder.name}, ${founder.role} of NUVA LYF`}
+                  alt={`${founder.name}, ${founder.role} of NuvaLyf`}
                   fill
                   sizes="(min-width: 768px) 500px, 100vw"
                   placeholder="blur"

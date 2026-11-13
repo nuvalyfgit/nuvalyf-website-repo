@@ -21,7 +21,7 @@ export function FinalCta() {
 
         <div className="reveal relative mx-auto max-w-3xl">
           <p className="t-eyebrow text-[#9be8da]">Ready when you are</p>
-          <h2 className="t-h2 mt-6 font-display text-white">See NUVA LYF in action.</h2>
+          <h2 className="t-h2 mt-6 font-display text-white">See NuvaLyf in action.</h2>
           <p className="t-lead mx-auto mt-6 max-w-xl text-white/55">
             Discover how one connected platform can simplify daily operations for doctors, staff and patients.
           </p>

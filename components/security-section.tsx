@@ -9,8 +9,8 @@ export function SecuritySection() {
     <section id="security" className="bg-white py-24 sm:py-32">
       <div className="site-container">
         <div className="grid items-end gap-8 lg:grid-cols-[1fr_.7fr]">
-          <SectionHeading eyebrow="Trust is foundational" title="Security built into every workflow." description="Patient information deserves careful handling. NUVA LYF’s architecture is designed around controlled access, clinic-level separation, traceability and resilient operations." />
-          <div className="rounded-2xl border border-[#cfe4df] bg-[#f2faf8] p-5 text-sm leading-6 text-[#47615d]"><strong className="block text-[#0b1535]">Clear, responsible claims</strong>NUVA LYF does not claim certifications or regulatory approvals that have not been independently obtained and verified.</div>
+          <SectionHeading eyebrow="Trust is foundational" title="Security built into every workflow." description="Patient information deserves careful handling. NuvaLyf’s architecture is designed around controlled access, clinic-level separation, traceability and resilient operations." />
+          <div className="rounded-2xl border border-[#cfe4df] bg-[#f2faf8] p-5 text-sm leading-6 text-[#47615d]"><strong className="block text-[#0b1535]">Clear, responsible claims</strong>NuvaLyf does not claim certifications or regulatory approvals that have not been independently obtained and verified.</div>
         </div>
         <div className="reveal-stagger mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {securityFeatures.map((item, index) => {

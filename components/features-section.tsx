@@ -45,7 +45,7 @@ export function FeaturesSection() {
         <SectionHeading
           eyebrow="One connected platform"
           title="Everything your clinic needs. Connected."
-          description="NUVA LYF connects clinical and administrative workflows so doctors and clinic teams can manage everyday operations from one calm, organised platform."
+          description="NuvaLyf connects clinical and administrative workflows so doctors and clinic teams can manage everyday operations from one calm, organised platform."
           align="center"
         />
 

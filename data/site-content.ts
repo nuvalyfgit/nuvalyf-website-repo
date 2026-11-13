@@ -1,11 +1,28 @@
 export const navigation = [
-  { label: "Platform", href: "#platform" },
-  { label: "Features", href: "#features" },
-  { label: "Solutions", href: "#solutions" },
-  { label: "Security", href: "#security" },
-  { label: "About", href: "#about" },
-  { label: "Team", href: "#team" },
+  { label: "EMR", href: "/#platform" },
+  { label: "DocConnect", href: "/docconnect" },
+  { label: "For patients", href: "/find-a-doctor" },
+  { label: "Solutions", href: "/#solutions" },
+  { label: "Security", href: "/#security" },
+  { label: "FAQ", href: "/#faq" },
 ];
+
+/** DocConnect patient-booking product. */
+export const docconnect = {
+  /** Early-access page. Replaces the old demo-app link until launch. */
+  earlyAccessUrl: "/docconnect#early-access",
+  /** PLACEHOLDER launch date: set the real one before going live. */
+  launchDate: "2027-01-26T09:00:00+05:30",
+  foundingPerks: [
+    "0% commission for the first 6 months",
+    "Priority onboarding and staff training",
+    "“Founding clinic” badge on your profile",
+    "Direct line to the product team",
+  ],
+};
+
+/** Sign-in for existing EMR customers. */
+export const emrSignInUrl = "https://emr.nuvalyf.com";
 
 /** Single source for contact details used in the contact panel and footer. */
 export const contact = {
