@@ -1,3 +1,4 @@
+import { rateLimited } from "@/lib/rate-limit";
 import { Resend } from "resend";
 import { z } from "zod";
 
@@ -16,6 +17,7 @@ const esc = (v: string) => v.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`)
 
 /** DocConnect early-access sign-ups. Delivered by email through Resend, like demo requests. */
 export async function POST(request: Request): Promise<Response> {
+  if (rateLimited(request, "form")) return Response.json({ ok: false, message: "Too many requests. Please try again in a few minutes." }, { status: 429 });
   const parsed = schema.safeParse(await request.json().catch(() => null));
   if (!parsed.success) {
     return Response.json({ ok: false, message: parsed.error.issues[0]?.message ?? "Check your details." }, { status: 400 });
@@ -38,9 +40,9 @@ export async function POST(request: Request): Promise<Response> {
     from: process.env.NOTIFY_EMAIL_FROM ?? "NuvaLyf <onboarding@resend.dev>",
     to: to.split(",").map((a) => a.trim()).filter(Boolean),
     subject: `DocConnect early access — ${label}: ${s.name || s.contact}`,
-    html: `<h2 style="font-family:system-ui">DocConnect early access</h2><p style="font-family:system-ui;color:#647383">${esc(at)}</p><table style="font-family:system-ui;border-collapse:collapse">${rows
+    html: `<h2 style="font-family:system-ui">DocConnect early access</h2><p style="font-family:system-ui;color:#64748B">${esc(at)}</p><table style="font-family:system-ui;border-collapse:collapse">${rows
       .filter(([, v]) => v)
-      .map(([k, v]) => `<tr><td style="padding:6px 14px 6px 0;color:#647383">${k}</td><td style="padding:6px 0">${esc(v)}</td></tr>`)
+      .map(([k, v]) => `<tr><td style="padding:6px 14px 6px 0;color:#64748B">${k}</td><td style="padding:6px 0">${esc(v)}</td></tr>`)
       .join("")}</table>`,
     text: [`DocConnect early access`, at, "", ...rows.filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`)].join("\n"),
   });

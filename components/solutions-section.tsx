@@ -8,16 +8,16 @@ const personaIcons = [Stethoscope, Building2, HeartHandshake, Hospital, CircleDo
 export function SolutionsSection() {
   return (
     <>
-      <section id="solutions" className="bg-[#f9fcfb] py-24 sm:py-32">
+      <section id="solutions" className="bg-[#F8FAFC] py-24 sm:py-32">
         <div className="site-container">
           <SectionHeading eyebrow="Solutions" title="Built for every part of your clinic." description="Give each person the tools and visibility they need, while keeping permissions appropriate to their role." align="center" />
           <div className="reveal-stagger mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-            {personas.map((persona,index)=>{const Icon=personaIcons[index];return <article key={persona.title} className={`card-lift rounded-[22px] p-6 ${index===0?"bg-[linear-gradient(160deg,#0b1535_0%,#084b45_100%)] text-white":"border border-[#dce7e5] bg-white text-[#0b1535]"}`}><Icon className={`h-6 w-6 ${index===0?"text-[#9be8da]":"text-[#0b6b63]"}`}/><h3 className="mt-8 text-lg font-bold">{persona.title}</h3><p className={`mt-3 text-sm leading-6 ${index===0?"text-white/75":"text-[#647383]"}`}>{persona.description}</p><ArrowUpRight className={`mt-7 h-5 w-5 ${index===0?"text-[#9be8da]":"text-[#9aa5ae]"}`}/></article>})}
+            {personas.map((persona,index)=>{const Icon=personaIcons[index];return <article key={persona.title} className={`card-lift rounded-[22px] p-6 ${index===0?"bg-[linear-gradient(160deg,#0F172A_0%,#084b45_100%)] text-white":"border border-[#E2E8F0] bg-white text-[#0F172A]"}`}><Icon className={`h-6 w-6 ${index===0?"text-[#99F6E4]":"text-[#059669]"}`}/><h3 className="mt-8 text-lg font-bold">{persona.title}</h3><p className={`mt-3 text-sm leading-6 ${index===0?"text-white/75":"text-[#64748B]"}`}>{persona.description}</p><ArrowUpRight className={`mt-7 h-5 w-5 ${index===0?"text-[#99F6E4]":"text-[#94A3B8]"}`}/></article>})}
           </div>
           <div className="mt-20 grid gap-10 lg:grid-cols-[.62fr_1fr]">
             <SectionHeading eyebrow="Flexible by specialty" title="Built for the way you practise." description="The same connected core supports a wide range of outpatient settings. Pick your specialty to see how it fits your day." />
             <div className="reveal-stagger grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {specialties.map((specialty)=><a key={specialty} href={`/specialties/${slugForSpecialty(specialty)}`} className="group flex items-center gap-2.5 rounded-xl border border-[#dce7e5] bg-white px-4 py-3 text-sm font-semibold text-[#3f4e5f] transition hover:border-[#0b6b63] hover:text-[#0b6b63]"><CheckCircle2 className="h-4 w-4 shrink-0 text-[#0b8b7f]"/>{specialty}<ArrowUpRight className="ml-auto h-4 w-4 opacity-0 transition group-hover:opacity-100"/></a>)}
+              {specialties.map((specialty)=><a key={specialty} href={`/specialties/${slugForSpecialty(specialty)}`} className="group flex items-center gap-2.5 rounded-xl border border-[#E2E8F0] bg-white px-4 py-3 text-sm font-semibold text-[#475569] transition hover:border-[#059669] hover:text-[#059669]"><CheckCircle2 className="h-4 w-4 shrink-0 text-[#059669]"/>{specialty}<ArrowUpRight className="ml-auto h-4 w-4 opacity-0 transition group-hover:opacity-100"/></a>)}
             </div>
           </div>
         </div>
@@ -25,8 +25,8 @@ export function SolutionsSection() {
       <section className="bg-white py-24 sm:py-32">
         <div className="site-container">
           <SectionHeading eyebrow="Why NuvaLyf" title="Built for healthcare. Designed for simplicity." align="center" />
-          <div className="reveal-stagger mt-14 grid gap-px overflow-hidden rounded-[26px] border border-[#e1ebe9] bg-[#e1ebe9] sm:grid-cols-2 lg:grid-cols-5">
-            {differentiators.map((item,index)=><div key={item.title} className="bg-white p-6"><span className="text-3xl font-light text-[#c2d3cf]">0{index+1}</span><h3 className="mt-10 text-base font-bold text-[#0b1535]">{item.title}</h3><p className="mt-2 text-sm leading-6 text-[#647383]">{item.description}</p></div>)}
+          <div className="reveal-stagger mt-14 grid gap-px overflow-hidden rounded-[26px] border border-[#E2E8F0] bg-[#E2E8F0] sm:grid-cols-2 lg:grid-cols-5">
+            {differentiators.map((item,index)=><div key={item.title} className="bg-white p-6"><span className="text-3xl font-light text-[#c2d3cf]">0{index+1}</span><h3 className="mt-10 text-base font-bold text-[#0F172A]">{item.title}</h3><p className="mt-2 text-sm leading-6 text-[#64748B]">{item.description}</p></div>)}
           </div>
         </div>
       </section>

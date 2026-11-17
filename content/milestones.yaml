@@ -1,0 +1,13 @@
+items:
+  - when: ''
+    title: Live in India
+    text: Clinics across India run their daily operations on NuvaLyf EMR.
+  - when: ''
+    title: Live in the UAE
+    text: Expanded to healthcare providers in the United Arab Emirates.
+  - when: ''
+    title: 50+ clinics onboarded
+    text: More than 50 clinics onboarded across India and the UAE.
+  - when: Coming soon
+    title: DocConnect launch
+    text: Online booking with a live queue for patients, connected to the clinic's EMR.

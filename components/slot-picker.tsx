@@ -36,12 +36,12 @@ export function SlotPicker() {
 
   return (
     <fieldset className="mt-5">
-      <legend className="mb-2.5 flex items-center gap-2 text-sm font-bold text-[#263449]">
-        <CalendarDays className="h-4 w-4 text-[#0b6b63]" /> Pick a time for your demo <span className="font-medium text-[#84909b]">(optional)</span>
+      <legend className="mb-2.5 flex items-center gap-2 text-sm font-bold text-[#334155]">
+        <CalendarDays className="h-4 w-4 text-[#059669]" /> Pick a time for your demo <span className="font-medium text-[#94A3B8]">(optional)</span>
       </legend>
       <input type="hidden" name="preferredSlot" value={value} />
       {!now ? (
-        <div className="h-[118px] rounded-xl bg-[#f3f8f7]" />
+        <div className="h-[118px] rounded-xl bg-[#F8FAFC]" />
       ) : (
         <>
           <div className="scrollbar-none -mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
@@ -50,7 +50,7 @@ export function SlotPicker() {
                 key={d.toISOString()}
                 type="button"
                 onClick={() => { setDay(i); setSlot(null); }}
-                className={`grid w-[62px] shrink-0 place-items-center rounded-xl border py-2 text-xs transition ${i === day ? "border-[#0b6b63] bg-[#0b6b63] text-white" : "border-[#d8e5e2] bg-[#fbfdfd] text-[#526173] hover:border-[#0b6b63]"}`}
+                className={`grid w-[62px] shrink-0 place-items-center rounded-xl border py-2 text-xs transition ${i === day ? "border-[#059669] bg-[#059669] text-white" : "border-[#E2E8F0] bg-[#F8FAFC] text-[#475569] hover:border-[#059669]"}`}
               >
                 <span className="font-semibold">{d.toLocaleDateString("en-GB", { weekday: "short" })}</span>
                 <span className="text-lg font-bold">{d.getDate()}</span>
@@ -68,15 +68,15 @@ export function SlotPicker() {
                   type="button"
                   aria-pressed={active}
                   onClick={() => setSlot(active ? null : t)}
-                  className={`rounded-lg border py-2 text-xs font-semibold transition ${active ? "border-[#0b6b63] bg-[#e1f6f1] text-[#0b6b63]" : "border-[#d8e5e2] bg-white text-[#526173] hover:border-[#0b6b63]"}`}
+                  className={`rounded-lg border py-2 text-xs font-semibold transition ${active ? "border-[#059669] bg-[#ECFDF5] text-[#059669]" : "border-[#E2E8F0] bg-white text-[#475569] hover:border-[#059669]"}`}
                 >
                   {t.toLocaleTimeString("en-GB", { hour: "numeric", minute: "2-digit", hour12: true })}
                 </button>
               );
             })}
           </div>
-          <p className="mt-2 text-xs text-[#84909b]">
-            {slot ? <>Selected: <strong className="text-[#0b6b63]">{value}</strong>. We&apos;ll confirm by email.</> : <>Times shown in your time zone ({tz}).</>}
+          <p className="mt-2 text-xs text-[#94A3B8]">
+            {slot ? <>Selected: <strong className="text-[#059669]">{value}</strong>. We&apos;ll confirm by email.</> : <>Times shown in your time zone ({tz}).</>}
           </p>
         </>
       )}

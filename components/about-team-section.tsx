@@ -25,7 +25,7 @@ const founders = [
 export function AboutTeamSection() {
   return (
     <>
-      <section id="about" className="grain relative overflow-hidden bg-[#070d24] py-24 sm:py-32">
+      <section id="about" className="grain relative overflow-hidden bg-[#0B1120] py-24 sm:py-32">
         <div className="site-container grid gap-14 lg:grid-cols-[.9fr_1.1fr]">
           <SectionHeading eyebrow="About NuvaLyf" title="Building better digital foundations for healthcare." description="Healthcare professionals should spend more time caring for patients and less time managing disconnected systems. NuvaLyf is building a simple, secure digital foundation for clinics across India." inverse />
           <div className="reveal-stagger grid gap-4 sm:grid-cols-3">
@@ -33,15 +33,15 @@ export function AboutTeamSection() {
               [Target,"Our mission","Make modern clinic technology simple, secure and accessible across India, the UAE and beyond."],
               [Telescope,"Our vision","Help create a more connected and efficient healthcare ecosystem."],
               [Workflow,"Our approach","Build around real clinic workflows instead of forcing complex software."],
-            ].map(([Icon,title,description])=>{const IconComponent=Icon as typeof Target;return <article key={title as string} className="card-lift rounded-[22px] border border-white/10 bg-white/[0.045] p-5"><IconComponent className="h-6 w-6 text-[#39dbc0]"/><h3 className="mt-8 font-bold text-white">{title as string}</h3><p className="mt-3 text-sm leading-6 text-white/55">{description as string}</p></article>})}
+            ].map(([Icon,title,description])=>{const IconComponent=Icon as typeof Target;return <article key={title as string} className="card-lift rounded-[22px] border border-white/10 bg-white/[0.045] p-5"><IconComponent className="h-6 w-6 text-[#14B8A6]"/><h3 className="mt-8 font-bold text-white">{title as string}</h3><p className="mt-3 text-sm leading-6 text-white/55">{description as string}</p></article>})}
           </div>
         </div>
       </section>
-      <section id="team" className="bg-[#f9fcfb] py-24 sm:py-32">
+      <section id="team" className="bg-[#F8FAFC] py-24 sm:py-32">
         <div className="site-container">
           <SectionHeading eyebrow="Founder-led" title="Meet the people building NuvaLyf." description="Business vision and technology execution working together to build a better digital experience for healthcare providers." align="center" />
           <div className="reveal-stagger mx-auto mt-16 grid max-w-5xl gap-6 md:grid-cols-2">
-            {founders.map((founder)=><article key={founder.name} className="card-lift overflow-hidden rounded-[26px] border border-[#e1ebe9] bg-white">
+            {founders.map((founder)=><article key={founder.name} className="card-lift overflow-hidden rounded-[26px] border border-[#E2E8F0] bg-white">
               {/* Both portraits are tall studio shots, so the square frame is
                   anchored to the top to keep faces from being cropped. */}
               <div className="relative aspect-square bg-[linear-gradient(135deg,#eef8f6_0%,#f7f8fc_100%)]">
@@ -55,10 +55,10 @@ export function AboutTeamSection() {
                 />
               </div>
               <div className="p-6 sm:p-8">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#0b8b7f]">{founder.highlight}</p>
-                <h3 className="mt-3 font-display text-2xl font-semibold text-[#0b1535]">{founder.name}</h3>
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#059669]">{founder.highlight}</p>
+                <h3 className="mt-3 font-display text-2xl font-semibold text-[#0F172A]">{founder.name}</h3>
                 <p className="mt-1 text-sm font-semibold text-[#5f6d7a]">{founder.role}</p>
-                <p className="mt-5 text-sm leading-7 text-[#647383]">{founder.bio}</p>
+                <p className="mt-5 text-sm leading-7 text-[#64748B]">{founder.bio}</p>
                 {/* Rendered only when a real profile exists - a dead chip is
                     worse than no chip. */}
                 {founder.linkedin && (
@@ -66,7 +66,7 @@ export function AboutTeamSection() {
                     href={founder.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 inline-flex h-10 items-center gap-2 rounded-full border border-[#d6e3e0] px-4 text-xs font-bold text-[#0b6b63] transition hover:border-[#0b6b63] hover:bg-[#0b6b63] hover:text-white"
+                    className="mt-6 inline-flex h-10 items-center gap-2 rounded-full border border-[#d6e3e0] px-4 text-xs font-bold text-[#059669] transition hover:border-[#059669] hover:bg-[#059669] hover:text-white"
                     aria-label={`${founder.name} on LinkedIn (opens in a new tab)`}
                   >
                     <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

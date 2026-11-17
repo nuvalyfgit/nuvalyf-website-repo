@@ -90,16 +90,16 @@ export function DemoForm() {
   }
 
   return (
-    <section id="contact" className="bg-[#eef6f5] py-24 sm:py-32">
+    <section id="contact" className="bg-[#F1F5F9] py-24 sm:py-32">
       <div className="site-container grid gap-10 lg:grid-cols-[.72fr_1fr] lg:gap-16">
         <div>
           <SectionHeading eyebrow="Book a demonstration" title="Let’s modernise your clinic." description="Tell us about your clinic and we’ll show you the EMR, DocConnect, or both, set up for the way you work. A 30-minute call, no obligation." />
           <div className="mt-10 space-y-4">
             {contactItems.map(({ Icon, text, href, external }) => {
-              const content = <><span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-[#0b6b63]"><Icon className="h-4 w-4"/></span><span className="break-all">{text}</span></>;
-              const className = "flex items-center gap-3 text-sm font-semibold text-[#526173]";
+              const content = <><span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-[#059669]"><Icon className="h-4 w-4"/></span><span className="break-all">{text}</span></>;
+              const className = "flex items-center gap-3 text-sm font-semibold text-[#475569]";
               return href
-                ? <a key={text} href={href} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className={`${className} transition hover:text-[#0b6b63]`}>{content}</a>
+                ? <a key={text} href={href} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className={`${className} transition hover:text-[#059669]`}>{content}</a>
                 : <div key={text} className={className}>{content}</div>;
             })}
           </div>
@@ -107,7 +107,7 @@ export function DemoForm() {
         <form onSubmit={handleSubmit} noValidate className="rounded-[28px] border border-[#d8e6e3] bg-white p-5 shadow-[0_24px_70px_rgba(15,68,62,0.08)] sm:p-8">
           {status === "success" ? (
             <div className="grid min-h-[470px] place-items-center text-center" role="status">
-              <div><span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-[#e1f6f1] text-[#0b8b7f]"><CheckCircle2 className="h-8 w-8"/></span><h3 className="mt-6 text-2xl font-bold text-[#0b1535]">Demo request received</h3><p className="mx-auto mt-3 max-w-md text-sm leading-6 text-[#647383]">Thank you — your details have been sent to our team. We will get back to you shortly.</p><Button type="button" variant="outline" className="mt-6 rounded-full" onClick={()=>setStatus("idle")}>Submit another request</Button></div>
+              <div><span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-[#ECFDF5] text-[#059669]"><CheckCircle2 className="h-8 w-8"/></span><h3 className="mt-6 text-2xl font-bold text-[#0F172A]">Demo request received</h3><p className="mx-auto mt-3 max-w-md text-sm leading-6 text-[#64748B]">Thank you — your details have been sent to our team. We will get back to you shortly.</p><Button type="button" variant="outline" className="mt-6 rounded-full" onClick={()=>setStatus("idle")}>Submit another request</Button></div>
             </div>
           ) : (
             <>
@@ -118,27 +118,27 @@ export function DemoForm() {
               </div>
 
               <fieldset className="mb-6">
-                <legend className="mb-2.5 text-sm font-bold text-[#263449]">I&apos;m interested in</legend>
+                <legend className="mb-2.5 text-sm font-bold text-[#334155]">I&apos;m interested in</legend>
                 <div className="grid gap-2.5 sm:grid-cols-3">
-                  {products.map((p,i)=><label key={p.value} className="flex cursor-pointer items-start gap-2.5 rounded-xl border border-[#d8e5e2] bg-[#fbfdfd] p-3 text-sm transition has-[:checked]:border-[#0b6b63] has-[:checked]:bg-[#eef8f6]"><input type="radio" name="product" value={p.value} defaultChecked={i===2} className="mt-1 accent-[#0b6b63]"/><span><strong className="block text-[#0b1535]">{p.label}</strong><span className="text-xs text-[#647383]">{p.hint}</span></span></label>)}
+                  {products.map((p,i)=><label key={p.value} className="flex cursor-pointer items-start gap-2.5 rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] p-3 text-sm transition has-[:checked]:border-[#059669] has-[:checked]:bg-[#eef8f6]"><input type="radio" name="product" value={p.value} defaultChecked={i===2} className="mt-1 accent-[#059669]"/><span><strong className="block text-[#0F172A]">{p.label}</strong><span className="text-xs text-[#64748B]">{p.hint}</span></span></label>)}
                 </div>
               </fieldset>
               <div className="grid gap-5 sm:grid-cols-2">
-                {fields.map((field)=>{const error=errorFor(field.name);return <label key={field.name} className="grid gap-2 text-sm font-bold text-[#263449]">{field.label}<Input name={field.name} type={field.type} placeholder={field.placeholder} required aria-invalid={error?true:undefined} aria-describedby={error?`${field.name}-error`:undefined} className="h-11 rounded-xl border-[#d8e5e2] bg-[#fbfdfd] px-4 shadow-none aria-invalid:border-[#c54545]"/>{error?<span id={`${field.name}-error`} className="text-xs font-semibold text-[#c54545]">{error}</span>:null}</label>})}
-                <label className="grid gap-2 text-sm font-bold text-[#263449] [&_[data-slot=native-select-wrapper]]:w-full">Medical Specialty<NativeSelect name="specialty" required defaultValue="" aria-invalid={errorFor("specialty")?true:undefined} className="h-11 w-full rounded-xl border-[#d8e5e2] bg-[#fbfdfd] px-4 shadow-none aria-invalid:border-[#c54545]"><NativeSelectOption value="">Select specialty</NativeSelectOption>{specialties.map((sp)=><NativeSelectOption key={sp}>{sp}</NativeSelectOption>)}<NativeSelectOption>Other</NativeSelectOption></NativeSelect>{errorFor("specialty")?<span className="text-xs font-semibold text-[#c54545]">{errorFor("specialty")}</span>:null}</label>
-                <label className="grid gap-2 text-sm font-bold text-[#263449] [&_[data-slot=native-select-wrapper]]:w-full">Number of Doctors<NativeSelect name="doctors" required defaultValue="" aria-invalid={errorFor("doctors")?true:undefined} className="h-11 w-full rounded-xl border-[#d8e5e2] bg-[#fbfdfd] px-4 shadow-none aria-invalid:border-[#c54545]"><NativeSelectOption value="">Select range</NativeSelectOption><NativeSelectOption>1</NativeSelectOption><NativeSelectOption>2–5</NativeSelectOption><NativeSelectOption>6–10</NativeSelectOption><NativeSelectOption>11+</NativeSelectOption></NativeSelect>{errorFor("doctors")?<span className="text-xs font-semibold text-[#c54545]">{errorFor("doctors")}</span>:null}</label>
+                {fields.map((field)=>{const error=errorFor(field.name);return <label key={field.name} className="grid gap-2 text-sm font-bold text-[#334155]">{field.label}<Input name={field.name} type={field.type} placeholder={field.placeholder} required aria-invalid={error?true:undefined} aria-describedby={error?`${field.name}-error`:undefined} className="h-11 rounded-xl border-[#E2E8F0] bg-[#F8FAFC] px-4 shadow-none aria-invalid:border-[#c54545]"/>{error?<span id={`${field.name}-error`} className="text-xs font-semibold text-[#c54545]">{error}</span>:null}</label>})}
+                <label className="grid gap-2 text-sm font-bold text-[#334155] [&_[data-slot=native-select-wrapper]]:w-full">Medical Specialty<NativeSelect name="specialty" required defaultValue="" aria-invalid={errorFor("specialty")?true:undefined} className="h-11 w-full rounded-xl border-[#E2E8F0] bg-[#F8FAFC] px-4 shadow-none aria-invalid:border-[#c54545]"><NativeSelectOption value="">Select specialty</NativeSelectOption>{specialties.map((sp)=><NativeSelectOption key={sp}>{sp}</NativeSelectOption>)}<NativeSelectOption>Other</NativeSelectOption></NativeSelect>{errorFor("specialty")?<span className="text-xs font-semibold text-[#c54545]">{errorFor("specialty")}</span>:null}</label>
+                <label className="grid gap-2 text-sm font-bold text-[#334155] [&_[data-slot=native-select-wrapper]]:w-full">Number of Doctors<NativeSelect name="doctors" required defaultValue="" aria-invalid={errorFor("doctors")?true:undefined} className="h-11 w-full rounded-xl border-[#E2E8F0] bg-[#F8FAFC] px-4 shadow-none aria-invalid:border-[#c54545]"><NativeSelectOption value="">Select range</NativeSelectOption><NativeSelectOption>1</NativeSelectOption><NativeSelectOption>2–5</NativeSelectOption><NativeSelectOption>6–10</NativeSelectOption><NativeSelectOption>11+</NativeSelectOption></NativeSelect>{errorFor("doctors")?<span className="text-xs font-semibold text-[#c54545]">{errorFor("doctors")}</span>:null}</label>
               </div>
               <SlotPicker />
-              <label className="mt-5 grid gap-2 text-sm font-bold text-[#263449]">Message<Textarea name="message" placeholder="Tell us briefly about your clinic and workflow" className="min-h-28 rounded-xl border-[#d8e5e2] bg-[#fbfdfd] p-4 shadow-none"/></label>
+              <label className="mt-5 grid gap-2 text-sm font-bold text-[#334155]">Message<Textarea name="message" placeholder="Tell us briefly about your clinic and workflow" className="min-h-28 rounded-xl border-[#E2E8F0] bg-[#F8FAFC] p-4 shadow-none"/></label>
 
               {formError ? (
                 <p role="alert" className="mt-5 rounded-xl border border-[#f0cccc] bg-[#fdf4f4] px-4 py-3 text-sm font-semibold text-[#a93b3b]">{formError}</p>
               ) : null}
 
-              <Button type="submit" size="lg" disabled={status === "submitting"} className="mt-6 h-12 w-full rounded-full bg-[#0b6b63] text-white hover:bg-[#07574f] disabled:opacity-70">
+              <Button type="submit" size="lg" disabled={status === "submitting"} className="mt-6 h-12 w-full rounded-full bg-[#059669] text-white hover:bg-[#07574f] disabled:opacity-70">
                 {status === "submitting" ? <>Sending… <Loader2 className="animate-spin"/></> : <>Request a Demo <ArrowRight/></>}
               </Button>
-              <p className="mt-4 text-center text-xs leading-5 text-[#84909b]">Your details are sent to the NuvaLyf team. We never share them with third parties.</p>
+              <p className="mt-4 text-center text-xs leading-5 text-[#94A3B8]">Your details are sent to the NuvaLyf team. We never share them with third parties.</p>
             </>
           )}
         </form>

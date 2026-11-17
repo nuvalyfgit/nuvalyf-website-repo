@@ -33,8 +33,8 @@ const stageIcons = [
  */
 export function JourneySection() {
   return (
-    <section className="relative overflow-hidden bg-[#070d24] py-24 sm:py-32">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_40%_at_50%_0%,rgba(57,219,192,0.1),transparent_60%)]" />
+    <section className="relative overflow-hidden bg-[#0B1120] py-24 sm:py-32">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_40%_at_50%_0%,rgba(20,184,166,0.1),transparent_60%)]" />
 
       <div className="site-container relative">
         <SectionHeading
@@ -59,7 +59,7 @@ export function JourneySection() {
                 className="reveal relative grid grid-cols-[auto_1fr] items-center gap-5 lg:grid-cols-2 lg:gap-16"
               >
                 {/* Station. In flow on mobile, pinned to the rail on desktop. */}
-                <span className="relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-full border border-[#39dbc0]/30 bg-[#0d1733] text-[11px] font-bold text-[#39dbc0] shadow-[0_0_0_6px_rgba(7,13,36,1)] lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+                <span className="relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-full border border-[#14B8A6]/30 bg-[#0F172A] text-[11px] font-bold text-[#14B8A6] shadow-[0_0_0_6px_rgba(7,13,36,1)] lg:absolute lg:left-1/2 lg:-translate-x-1/2">
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
@@ -70,7 +70,7 @@ export function JourneySection() {
                       : "lg:col-start-2 lg:mr-auto"
                   }`}
                 >
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#39dbc0]/12 text-[#39dbc0]">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#14B8A6]/12 text-[#14B8A6]">
                     <Icon className="h-5 w-5" />
                   </span>
                   <span className="text-[15px] font-bold text-white">{step}</span>

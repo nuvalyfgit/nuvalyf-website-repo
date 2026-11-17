@@ -1,18 +1,44 @@
-export const navigation = [
-  { label: "EMR", href: "/#platform" },
-  { label: "DocConnect", href: "/docconnect" },
-  { label: "For patients", href: "/find-a-doctor" },
-  { label: "Solutions", href: "/#solutions" },
-  { label: "Security", href: "/#security" },
-  { label: "FAQ", href: "/#faq" },
+export type NavLink = { label: string; href: string; description?: string };
+export type NavItem = NavLink | { label: string; items: NavLink[] };
+
+/** Grouped primary navigation. Every page in the brief is reachable from here. */
+export const navigation: NavItem[] = [
+  {
+    label: "Products",
+    items: [
+      { label: "Products & Features", href: "/products", description: "All 14 EMR modules" },
+      { label: "DocConnect", href: "/docconnect", description: "Online booking with a live queue" },
+      { label: "For patients", href: "/find-a-doctor", description: "Find a doctor and book" },
+    ],
+  },
+  {
+    label: "Solutions",
+    items: [
+      { label: "All solutions", href: "/solutions", description: "By role and specialty" },
+      { label: "For Doctors", href: "/for-doctors", description: "Faster, calmer consultations" },
+      { label: "For Hospitals & Clinics", href: "/for-hospitals", description: "Run every department" },
+    ],
+  },
+  {
+    label: "Company",
+    items: [
+      { label: "About Us", href: "/about", description: "Our story, mission and values" },
+      { label: "Our Team", href: "/team", description: "The people building NuvaLyf" },
+      { label: "Careers", href: "/careers", description: "Join us" },
+    ],
+  },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Resources", href: "/resources" },
+  { label: "Contact", href: "/contact" },
 ];
+
+/** Flat list of every page link, for the footer and sitemap. */
+export const allNavLinks: NavLink[] = navigation.flatMap((i) => ("items" in i ? i.items : [i]));
 
 /** DocConnect patient-booking product. */
 export const docconnect = {
   /** Early-access page. Replaces the old demo-app link until launch. */
   earlyAccessUrl: "/docconnect#early-access",
-  /** PLACEHOLDER launch date: set the real one before going live. */
-  launchDate: "2027-01-26T09:00:00+05:30",
   foundingPerks: [
     "0% commission for the first 6 months",
     "Priority onboarding and staff training",
@@ -28,6 +54,7 @@ export const emrSignInUrl = "https://emr.nuvalyf.com";
 export const contact = {
   email: "business@nuvalyf.com",
   phone: { display: "+91 93845 30408", tel: "+919384530408" },
+  phoneUae: { display: "+971 54 431 1859", tel: "+971544311859" },
   whatsapp: { display: "+91 93845 30408", href: "https://wa.me/919384530408" },
 };
 

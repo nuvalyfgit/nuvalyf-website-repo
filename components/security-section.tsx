@@ -10,12 +10,12 @@ export function SecuritySection() {
       <div className="site-container">
         <div className="grid items-end gap-8 lg:grid-cols-[1fr_.7fr]">
           <SectionHeading eyebrow="Trust is foundational" title="Security built into every workflow." description="Patient information deserves careful handling. NuvaLyf’s architecture is designed around controlled access, clinic-level separation, traceability and resilient operations." />
-          <div className="rounded-2xl border border-[#cfe4df] bg-[#f2faf8] p-5 text-sm leading-6 text-[#47615d]"><strong className="block text-[#0b1535]">Clear, responsible claims</strong>NuvaLyf does not claim certifications or regulatory approvals that have not been independently obtained and verified.</div>
+          <div className="rounded-2xl border border-[#cfe4df] bg-[#f2faf8] p-5 text-sm leading-6 text-[#47615d]"><strong className="block text-[#0F172A]">Clear, responsible claims</strong>NuvaLyf does not claim certifications or regulatory approvals that have not been independently obtained and verified.</div>
         </div>
         <div className="reveal-stagger mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {securityFeatures.map((item, index) => {
             const Icon = icons[index];
-            return <article key={item.title} className="card-lift rounded-[22px] border border-[#e1ebe9] bg-white p-6"><span className="grid h-11 w-11 place-items-center rounded-2xl bg-[#0b1535] text-[#39dbc0]"><Icon className="h-5 w-5"/></span><h3 className="mt-5 text-base font-bold text-[#0b1535]">{item.title}</h3><p className="mt-2 text-sm leading-6 text-[#647383]">{item.description}</p></article>;
+            return <article key={item.title} className="card-lift rounded-[22px] border border-[#E2E8F0] bg-white p-6"><span className="grid h-11 w-11 place-items-center rounded-2xl bg-[#0F172A] text-[#14B8A6]"><Icon className="h-5 w-5"/></span><h3 className="mt-5 text-base font-bold text-[#0F172A]">{item.title}</h3><p className="mt-2 text-sm leading-6 text-[#64748B]">{item.description}</p></article>;
           })}
         </div>
       </div>

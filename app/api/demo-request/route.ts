@@ -1,3 +1,4 @@
+import { rateLimited } from "@/lib/rate-limit";
 import {
   demoRequestSchema,
   type DemoRequestFieldErrors,
@@ -14,6 +15,7 @@ function json(body: DemoRequestResponse, status: number): Response {
 }
 
 export async function POST(request: Request): Promise<Response> {
+  if (rateLimited(request, "form")) return Response.json({ ok: false, message: "Too many requests. Please try again in a few minutes." }, { status: 429 });
   let payload: unknown;
   try {
     payload = await request.json();

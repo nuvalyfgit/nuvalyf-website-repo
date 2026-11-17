@@ -1,14 +1,14 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-import { ArrowRight, Building2, CheckCircle2, Loader2, UserRound } from "lucide-react";
 import { docconnect } from "@/data/site-content";
+import { ArrowRight, Building2, CheckCircle2, Loader2, UserRound } from "lucide-react";
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
-/** Countdown to docconnect.launchDate. Renders nothing until mounted to avoid a server/client mismatch. */
-export function Countdown() {
-  const target = new Date(docconnect.launchDate).getTime();
+/** Countdown to the launch date set in the CMS. Renders nothing until mounted to avoid a server/client mismatch. */
+export function Countdown({ launchDate }: { launchDate: string }) {
+  const target = new Date(launchDate).getTime();
   const [now, setNow] = useState<number | null>(null);
   useEffect(() => {
     setNow(Date.now());
@@ -46,25 +46,25 @@ export function WaitSlider() {
   const fmt = (d: Date) => d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }).toLowerCase();
 
   return (
-    <div className="rounded-[28px] border border-[#dce7e5] bg-white p-6 sm:p-8">
+    <div className="rounded-[28px] border border-[#E2E8F0] bg-white p-6 sm:p-8">
       <div className="flex items-center justify-between gap-4">
-        <label htmlFor="ahead" className="text-sm font-bold text-[#263449]">Patients ahead of you</label>
-        <span className="font-display text-3xl font-bold text-[#0b1535] tabular-nums">{ahead}</span>
+        <label htmlFor="ahead" className="text-sm font-bold text-[#334155]">Patients ahead of you</label>
+        <span className="font-display text-3xl font-bold text-[#0F172A] tabular-nums">{ahead}</span>
       </div>
-      <input id="ahead" type="range" min={1} max={15} step={1} value={ahead} onChange={(e) => setAhead(+e.target.value)} className="mt-4 w-full accent-[#0b6b63]" />
+      <input id="ahead" type="range" min={1} max={15} step={1} value={ahead} onChange={(e) => setAhead(+e.target.value)} className="mt-4 w-full accent-[#059669]" />
       <div className="mt-6 grid gap-3 sm:grid-cols-3">
         {[
           ["Old way: waiting room", `${saved} min`, "text-[#c54545]"],
-          ["DocConnect: leave home at", fmt(leave), "text-[#0b1535]"],
-          ["Time you get back", `${saved - 5} min`, "text-[#0b6b63]"],
+          ["DocConnect: leave home at", fmt(leave), "text-[#0F172A]"],
+          ["Time you get back", `${saved - 5} min`, "text-[#059669]"],
         ].map(([l, v, c]) => (
           <div key={l} className="rounded-2xl bg-[#f6faf9] p-4">
-            <p className="text-xs font-semibold text-[#647383]">{l}</p>
+            <p className="text-xs font-semibold text-[#64748B]">{l}</p>
             <p className={`mt-1 font-display text-2xl font-bold tabular-nums ${c}`}>{v}</p>
           </div>
         ))}
       </div>
-      <p className="mt-4 text-xs text-[#84909b]">Example based on about {perPatient} minutes per consultation and a 20-minute journey.</p>
+      <p className="mt-4 text-xs text-[#94A3B8]">Example based on about {perPatient} minutes per consultation and a 20-minute journey.</p>
     </div>
   );
 }
@@ -94,30 +94,30 @@ function WaitlistCard({ type }: { type: "patient" | "clinic" }) {
     }
   }
 
-  const input = `h-11 w-full rounded-xl border px-4 text-sm outline-none transition focus:ring-4 ${clinic ? "border-white/15 bg-white/[0.06] text-white placeholder:text-white/40 focus:ring-[#39dbc0]/20" : "border-[#d8e5e2] bg-[#fbfdfd] text-[#0b1535] placeholder:text-[#9aa5ae] focus:ring-[#0b6b63]/10"}`;
+  const input = `h-11 w-full rounded-xl border px-4 text-sm outline-none transition focus:ring-4 ${clinic ? "border-white/15 bg-white/[0.06] text-white placeholder:text-white/40 focus:ring-[#14B8A6]/20" : "border-[#E2E8F0] bg-[#F8FAFC] text-[#0F172A] placeholder:text-[#94A3B8] focus:ring-[#059669]/10"}`;
 
   return (
-    <div className={`card-lift flex flex-col rounded-[28px] p-7 sm:p-8 ${clinic ? "bg-[linear-gradient(160deg,#0b1535_0%,#084b45_100%)] text-white" : "border border-[#dce7e5] bg-white text-[#0b1535]"}`}>
+    <div className={`card-lift flex flex-col rounded-[28px] p-7 sm:p-8 ${clinic ? "bg-[linear-gradient(160deg,#0F172A_0%,#084b45_100%)] text-white" : "border border-[#E2E8F0] bg-white text-[#0F172A]"}`}>
       <div className="flex items-center gap-3">
-        <span className={`grid h-11 w-11 place-items-center rounded-xl ${clinic ? "bg-[#39dbc0] text-[#07231f]" : "bg-[#e1f6f1] text-[#0b6b63]"}`}>
+        <span className={`grid h-11 w-11 place-items-center rounded-xl ${clinic ? "bg-[#14B8A6] text-[#042F2E]" : "bg-[#ECFDF5] text-[#059669]"}`}>
           {clinic ? <Building2 className="h-5 w-5" /> : <UserRound className="h-5 w-5" />}
         </span>
         <div>
-          <p className={`text-xs font-bold uppercase tracking-[0.14em] ${clinic ? "text-[#9be8da]" : "text-[#087a70]"}`}>{clinic ? "Limited spots" : "For patients"}</p>
+          <p className={`text-xs font-bold uppercase tracking-[0.14em] ${clinic ? "text-[#99F6E4]" : "text-[#047857]"}`}>{clinic ? "Limited spots" : "For patients"}</p>
           <h3 className="text-xl font-bold">{clinic ? "Become a founding clinic" : "Get notified at launch"}</h3>
         </div>
       </div>
 
       {clinic ? (
         <ul className="mt-5 space-y-2 text-sm text-white/80">
-          {docconnect.foundingPerks.map((p) => <li key={p} className="flex gap-2.5"><CheckCircle2 className="h-4 w-4 shrink-0 text-[#39dbc0]" />{p}</li>)}
+          {docconnect.foundingPerks.map((p) => <li key={p} className="flex gap-2.5"><CheckCircle2 className="h-4 w-4 shrink-0 text-[#14B8A6]" />{p}</li>)}
         </ul>
       ) : (
-        <p className="mt-5 text-sm leading-6 text-[#647383]">Be first to book when DocConnect opens in your city. One message at launch, no spam.</p>
+        <p className="mt-5 text-sm leading-6 text-[#64748B]">Be first to book when DocConnect opens in your city. One message at launch, no spam.</p>
       )}
 
       {state === "done" ? (
-        <div className={`mt-6 flex flex-1 items-center gap-3 rounded-2xl p-4 text-sm font-semibold ${clinic ? "bg-white/10" : "bg-[#e1f6f1] text-[#085041]"}`} role="status">
+        <div className={`mt-6 flex flex-1 items-center gap-3 rounded-2xl p-4 text-sm font-semibold ${clinic ? "bg-white/10" : "bg-[#ECFDF5] text-[#065F46]"}`} role="status">
           <CheckCircle2 className="h-5 w-5 shrink-0" />{clinic ? "Spot reserved. Our team will call you within 2 working days." : "You're on the list. We'll message you at launch."}
         </div>
       ) : (
@@ -129,7 +129,7 @@ function WaitlistCard({ type }: { type: "patient" | "clinic" }) {
           </div>
           <input name="contact" placeholder="Phone or email" className={input} aria-label="Phone or email" aria-invalid={!!error} onChange={() => error && setError("")} />
           {error && <p className={`text-xs font-semibold ${clinic ? "text-[#ffb4b4]" : "text-[#c54545]"}`}>{error}</p>}
-          <button type="submit" disabled={state === "sending"} className={`mt-1 flex h-12 items-center justify-center gap-2 rounded-full font-bold transition disabled:opacity-70 ${clinic ? "bg-[#39dbc0] text-[#07231f] hover:bg-[#5ce7d0]" : "bg-[#0b6b63] text-white hover:bg-[#07574f]"}`}>
+          <button type="submit" disabled={state === "sending"} className={`mt-1 flex h-12 items-center justify-center gap-2 rounded-full font-bold transition disabled:opacity-70 ${clinic ? "bg-[#14B8A6] text-[#042F2E] hover:bg-[#2DD4BF]" : "bg-[#059669] text-white hover:bg-[#07574f]"}`}>
             {state === "sending" ? <Loader2 className="h-4 w-4 animate-spin" /> : <>{clinic ? "Reserve my spot" : "Notify me"} <ArrowRight className="h-4 w-4" /></>}
           </button>
         </form>

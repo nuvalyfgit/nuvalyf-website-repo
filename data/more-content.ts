@@ -1,24 +1,6 @@
 /** Set this to a YouTube embed URL (https://www.youtube.com/embed/...) once the demo video exists. */
 export const demoVideoUrl = "";
 
-export const faqs: [string, string][] = [
-  ["Who owns the clinic's data?", "You do. Every record stays under your clinic's control and can be exported at any time, including original documents. We never sell data."],
-  ["Can we move from our current software or paper records?", "Yes. We import patients and history from CSV or Excel, check for duplicates, and help your team through the switch."],
-  ["How long does setup take?", "Most clinics are live within a week: account setup, data import, a training session for doctors and front desk, then go live."],
-  ["Do I need DocConnect to use the EMR, or the other way round?", "No. Use the EMR on its own, DocConnect on its own with your existing EMR, or both together as one package."],
-  ["What happens if the internet goes down?", "Your data is safe in the cloud. Walk-ins can still be noted at the desk and entered once you're back online; nothing already saved is lost."],
-  ["Is patient data secure?", "Yes. Role-based access, clinic data separation, encrypted connections, audit trails and regular backups are built in."],
-  ["Do you train our staff and offer support?", "Yes. Training is included at setup, and support is available on WhatsApp, phone and email."],
-  ["Which countries do you support?", "India and the UAE today, with more regions coming. The product supports local currency, tax and phone formats."],
-];
-
-export const patientFaqs: [string, string][] = [
-  ["Is DocConnect free for patients?", "Yes. Searching and booking are free. You pay the doctor's consultation fee as usual."],
-  ["How does the live queue work?", "After booking, you get a token. The app shows how many people are ahead of you and when to leave home, and updates if the doctor is running late."],
-  ["Can I book for my family?", "Yes. Add family members to your account and book for any of them."],
-  ["Where do I see my prescription?", "Once the doctor finalises it, the prescription appears in your app to view, download or share."],
-];
-
 export type Specialty = {
   slug: string;
   name: string;

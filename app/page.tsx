@@ -14,18 +14,30 @@ import { SecuritySection } from "@/components/security-section";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SolutionsSection } from "@/components/solutions-section";
+import { SocialProof } from "@/components/social-proof";
+import type { Metadata } from "next";
+import { JsonLd, emrSoftwareJsonLd } from "@/components/json-ld";
+import { getStats } from "@/lib/cms";
 
-export default function Home() {
+export const metadata: Metadata = {
+  alternates: { canonical: "/", languages: { en: "/", ar: "/ar", "x-default": "/" } },
+};
+
+export default async function Home() {
+  const stats = await getStats();
+  const clinics = stats.clinics ?? 50;
   return (
     <main>
+      <JsonLd data={emrSoftwareJsonLd} />
       <SiteHeader />
-      <Hero />
+      <Hero clientCount={clinics} />
       <FeaturesSection />
       <JourneySection />
       <PlatformSection />
       <DocConnectSection />
       <SecuritySection />
-      <ReachSection />
+      <ReachSection clientCount={clinics} />
+      <SocialProof />
       <SolutionsSection />
       <AboutTeamSection />
       <FaqSection />
