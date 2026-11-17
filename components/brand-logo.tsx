@@ -17,7 +17,7 @@ import logoLight from "@/public/nuva-lyf-logo-light.png";
 export function BrandLogo({ inverse = false }: { inverse?: boolean }) {
   return (
     <a
-      href="#home"
+      href="/"
       className="inline-flex items-center rounded-md transition-opacity hover:opacity-80"
       aria-label="NuvaLyf home"
     >
