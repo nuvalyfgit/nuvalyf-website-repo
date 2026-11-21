@@ -87,7 +87,9 @@ export function LiveTicket() {
 export function DocConnectSection() {
   return (
     <>
-      <section id="docconnect" className="grain relative overflow-hidden bg-[#0B1120] py-24 text-white sm:py-32">
+      <section id="docconnect" className="nv-hero relative py-24 text-white sm:py-32">
+        <div className="nv-aurora"><span /><span /><span /></div>
+        <div className="nv-grid" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_50%_at_85%_20%,rgba(20,184,166,0.16),transparent_60%),radial-gradient(45%_45%_at_10%_90%,rgba(5,150,105,0.14),transparent_62%)]" />
         <div className="site-container relative grid items-center gap-16 lg:grid-cols-[1.1fr_.9fr]">
           <div>

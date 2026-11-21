@@ -124,7 +124,9 @@ function DashboardMockup() {
 
 export function Hero({ clientCount = reach.clients.value }: { clientCount?: number } = {}) {
   return (
-    <section id="home" className="grain relative overflow-hidden bg-[#0B1120] pt-16 sm:pt-20 lg:pt-24">
+    <section id="home" className="nv-hero relative pt-16 sm:pt-20 lg:pt-24">
+        <div className="nv-aurora"><span /><span /><span /></div>
+        <div className="nv-grid" />
       {/* Atmosphere: two broad colour fields plus a faint technical grid. */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_55%_at_78%_8%,rgba(20,184,166,0.18),transparent_60%),radial-gradient(55%_45%_at_12%_85%,rgba(5,150,105,0.16),transparent_62%)]" />
       <div

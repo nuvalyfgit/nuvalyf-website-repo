@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [{ userAgent: "*", allow: "/", disallow: ["/api/", "/keystatic"] }],
+    rules: [{ userAgent: "*", allow: "/", disallow: ["/api/", "/admin"] }],
     sitemap: "https://nuvalyf.com/sitemap.xml",
     host: "https://nuvalyf.com",
   };

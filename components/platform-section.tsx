@@ -47,7 +47,9 @@ function ProductVisual({ type }: { type: string }) {
 
 export function PlatformSection() {
   return (
-    <section id="platform" className="grain relative overflow-hidden bg-[#0B1120] py-24 sm:py-32">
+    <section id="platform" className="nv-hero relative py-24 sm:py-32">
+        <div className="nv-aurora"><span /><span /><span /></div>
+        <div className="nv-grid" />
       <div className="site-container">
         <SectionHeading eyebrow="NuvaLyf Product Platform" title="One connected platform for the modern clinic." description="Move from front desk to consultation, prescription, billing, communication and reporting without breaking the flow of care." inverse />
         <p className="mt-5 max-w-2xl text-sm leading-6 text-white/55">Explore each workflow to see how NuvaLyf supports the patient journey from reception and consultation through communication and reporting.</p>

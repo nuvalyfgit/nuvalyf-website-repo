@@ -1,0 +1,130 @@
+/* Homepage: cinematic hero, scroll story, bento and marquee. NuvaLyf palette:
+   navy #0B1120 / #0F172A, emerald #059669, teal #14B8A6, mint #5EEAD4. */
+
+.nv-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: radial-gradient(120% 80% at 70% 0%, #0f2a33 0%, #0b1120 55%, #070b16 100%);
+}
+
+/* Aurora: three blurred orbs drifting slowly */
+.nv-aurora { position: absolute; inset: -20%; z-index: -2; filter: blur(70px); opacity: 0.75; pointer-events: none; }
+.nv-aurora span { position: absolute; border-radius: 9999px; mix-blend-mode: screen; }
+.nv-aurora span:nth-child(1) { width: 46vw; height: 46vw; left: 38%; top: 2%; background: #0d9488; animation: nv-drift-a 18s ease-in-out infinite; }
+.nv-aurora span:nth-child(2) { width: 34vw; height: 34vw; left: 62%; top: 30%; background: #059669; animation: nv-drift-b 22s ease-in-out infinite; }
+.nv-aurora span:nth-child(3) { width: 30vw; height: 30vw; left: 10%; top: 40%; background: #155e75; opacity: 0.7; animation: nv-drift-c 26s ease-in-out infinite; }
+@keyframes nv-drift-a { 50% { transform: translate(-8%, 10%) scale(1.12); } }
+@keyframes nv-drift-b { 50% { transform: translate(-14%, -8%) scale(0.9); } }
+@keyframes nv-drift-c { 50% { transform: translate(12%, -6%) scale(1.1); } }
+
+/* Fine grid that fades out towards the edges */
+.nv-grid {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(70% 60% at 60% 35%, black 20%, transparent 75%);
+}
+
+/* Heartbeat line drawn across the hero */
+.nv-ecg path { stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: nv-ecg 5.5s cubic-bezier(.6,.1,.3,1) infinite; }
+@keyframes nv-ecg { 0% { stroke-dashoffset: 1400; opacity: 0; } 10% { opacity: 1; } 70% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+
+.nv-gradient-text {
+  background: linear-gradient(100deg, #5eead4 0%, #34d399 45%, #a7f3d0 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* Glass cards in the hero stage */
+.nv-glass {
+  background: linear-gradient(160deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04));
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.15);
+  backdrop-filter: blur(18px);
+}
+.nv-card { background: #fff; border: 1px solid rgba(15,23,42,0.06); box-shadow: 0 40px 90px -30px rgba(2,6,23,0.65), 0 2px 6px rgba(2,6,23,0.08); }
+.nv-float-1 { animation: nv-float 7s ease-in-out infinite; }
+.nv-float-2 { animation: nv-float 8s ease-in-out -2s infinite; }
+.nv-float-3 { animation: nv-float 9s ease-in-out -4s infinite; }
+@keyframes nv-float { 50% { transform: translateY(-12px); } }
+
+.nv-stage { perspective: 1400px; }
+.nv-stage-inner { transform-style: preserve-3d; transition: transform .25s ease-out; }
+
+/* Token flip in the live queue card */
+.nv-flip { animation: nv-flip 0.6s cubic-bezier(.3,1.4,.5,1); }
+@keyframes nv-flip { 0% { transform: rotateX(90deg); opacity: 0; } 100% { transform: rotateX(0); opacity: 1; } }
+
+.nv-pulse-dot { box-shadow: 0 0 0 0 rgba(94,234,212,0.7); animation: nv-pulse 2s infinite; }
+@keyframes nv-pulse { 70% { box-shadow: 0 0 0 10px rgba(94,234,212,0); } 100% { box-shadow: 0 0 0 0 rgba(94,234,212,0); } }
+
+.nv-toast-in { animation: nv-toast 6s ease-in-out infinite; }
+@keyframes nv-toast { 0%, 8% { opacity: 0; transform: translateY(14px) scale(.96); } 14%, 70% { opacity: 1; transform: none; } 78%, 100% { opacity: 0; transform: translateY(-8px); } }
+
+/* Marquee */
+.nv-marquee { mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent); }
+.nv-marquee-track { display: flex; width: max-content; animation: nv-marquee 38s linear infinite; }
+.nv-marquee:hover .nv-marquee-track { animation-play-state: paused; }
+@keyframes nv-marquee { to { transform: translateX(-50%); } }
+
+/* Spotlight cards: a soft glow follows the cursor */
+.nv-spot { position: relative; overflow: hidden; }
+.nv-spot::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(20,184,166,0.16), transparent 45%);
+}
+.nv-spot:hover::before { opacity: 1; }
+.nv-spot-dark::before { background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(94,234,212,0.18), transparent 45%); }
+
+/* Scroll story */
+.nv-step { transition: opacity .5s, transform .5s; opacity: .35; }
+.nv-step[data-active="true"] { opacity: 1; }
+.nv-screen { transition: opacity .6s ease, transform .6s ease; }
+.nv-screen[data-active="false"] { opacity: 0; transform: translateY(16px) scale(.98); pointer-events: none; }
+
+/* Reveal on scroll */
+.nv-reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+.nv-reveal.is-in { opacity: 1; transform: none; }
+
+/* Animated gradient border for the closing CTA */
+.nv-border-glow { position: relative; }
+.nv-border-glow::after {
+  content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1px; pointer-events: none;
+  background: conic-gradient(from var(--a, 0deg), transparent 0 60%, #5eead4 75%, #059669 85%, transparent 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+  animation: nv-spin 6s linear infinite;
+}
+@property --a { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+@keyframes nv-spin { to { --a: 360deg; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .nv-aurora span, .nv-ecg path, .nv-float-1, .nv-float-2, .nv-float-3, .nv-marquee-track, .nv-toast-in, .nv-pulse-dot, .nv-border-glow::after { animation: none !important; }
+  .nv-ecg path { stroke-dashoffset: 0; }
+  .nv-reveal { opacity: 1; transform: none; }
+}
+
+/* ---------- Page transitions (browsers that support cross-page view transitions) */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: nv-vt-out .25s ease both; }
+::view-transition-new(root) { animation: nv-vt-in .35s ease both; }
+@keyframes nv-vt-out { to { opacity: 0; transform: translateY(-6px); } }
+@keyframes nv-vt-in { from { opacity: 0; transform: translateY(8px); } }
+
+/* ---------- Reduce motion switch */
+html[data-motion="reduce"] *, html[data-motion="reduce"] *::before, html[data-motion="reduce"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+html[data-motion="reduce"] .nv-reveal { opacity: 1; transform: none; }
+
+/* ---------- Dark mode: remaps the light surfaces and text used across the site */
+html[data-theme="dark"] { color-scheme: dark; background: #070b16; }
+html[data-theme="dark"] body { background: #070b16; color: #e2e8f0; }
+html[data-theme="dark"] :is(.bg-white, .bg-\[\#fff\], .bg-\[\#FFFFFF\]) { background-color: #0d1424 !important; }
+html[data-theme="dark"] :is(.bg-\[\#f6faf9\], .bg-\[\#F8FAFC\], .bg-\[\#f8fafc\], .bg-\[\#F1F5F9\], .bg-\[\#f1f5f9\]) { background-color: #0a1120 !important; }
+html[data-theme="dark"] :is(.bg-\[\#ecfdf5\], .bg-\[\#ECFDF5\], .bg-\[\#e4f7f3\]) { background-color: rgba(20,184,166,0.12) !important; }
+html[data-theme="dark"] :is(.text-\[\#0b1120\], .text-\[\#0B1120\], .text-\[\#0f172a\], .text-\[\#0F172A\]) { color: #f1f5f9 !important; }
+html[data-theme="dark"] :is(.text-\[\#334155\], .text-\[\#475569\], .text-\[\#64748b\], .text-\[\#64748B\]) { color: #94a3b8 !important; }
+html[data-theme="dark"] :is(.border-\[\#e2e8f0\], .border-\[\#E2E8F0\], .border-\[\#cbd5e1\]) { border-color: rgba(255,255,255,0.09) !important; }
+/* Product mock-ups stay light, like real screens */
+html[data-theme="dark"] .nv-card, html[data-theme="dark"] .nv-card .bg-white { background-color: #fff !important; }
+html[data-theme="dark"] .nv-card .bg-\[\#f8fafc\] { background-color: #f8fafc !important; }
+html[data-theme="dark"] .nv-card :is(.text-\[\#0b1120\], .text-\[\#0f172a\]) { color: #0b1120 !important; }
+html[data-theme="dark"] .nv-card :is(.text-\[\#334155\], .text-\[\#64748b\]) { color: #475569 !important; }

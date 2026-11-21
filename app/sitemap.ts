@@ -7,7 +7,7 @@ const base = "https://nuvalyf.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getPosts();
-  const pages = [...new Set([...allNavLinks.map((l) => l.href), "/book-a-demo", "/ar"])];
+  const pages = [...new Set([...allNavLinks.map((l) => l.href), "/book-a-demo", "/ar", "/tools/clinic-wait-time-calculator"])];
   return [
     { url: base, priority: 1 },
     ...pages.map((p) => ({ url: `${base}${p}`, priority: p === "/book-a-demo" || p === "/pricing" || p === "/products" || p === "/docconnect" ? 0.9 : 0.8 })),

@@ -25,7 +25,9 @@ const founders = [
 export function AboutTeamSection() {
   return (
     <>
-      <section id="about" className="grain relative overflow-hidden bg-[#0B1120] py-24 sm:py-32">
+      <section id="about" className="nv-hero relative py-24 sm:py-32">
+        <div className="nv-aurora"><span /><span /><span /></div>
+        <div className="nv-grid" />
         <div className="site-container grid gap-14 lg:grid-cols-[.9fr_1.1fr]">
           <SectionHeading eyebrow="About NuvaLyf" title="Building better digital foundations for healthcare." description="Healthcare professionals should spend more time caring for patients and less time managing disconnected systems. NuvaLyf is building a simple, secure digital foundation for clinics across India." inverse />
           <div className="reveal-stagger grid gap-4 sm:grid-cols-3">
