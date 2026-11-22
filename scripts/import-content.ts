@@ -6,7 +6,7 @@
  */
 import fs from "fs";
 import path from "path";
-import YAML from "js-yaml";
+import * as YAML from "js-yaml";
 import { getPayload } from "payload";
 import { convertMarkdownToLexical, editorConfigFactory } from "@payloadcms/richtext-lexical";
 import config from "../payload.config";
@@ -82,9 +82,9 @@ for (const f of files("content/clients", ".yaml")) {
 for (const f of files("content/posts", ".mdoc")) {
   const slug = f.replace(/\.mdoc$/, "");
   if (await exists("posts", "slug", slug)) continue;
-  const text = fs.readFileSync(path.join(root, "content/posts", f), "utf-8");
+  const text = fs.readFileSync(path.join(root, "content/posts", f), "utf-8").replace(/\r\n/g, "\n");
   const [, front, body] = text.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/) ?? [null, "", text];
-  const m = (YAML.load(front) ?? {}) as Record<string, any>;
+  const m = ((front.trim() ? YAML.load(front) : null) ?? {}) as Record<string, any>;
   const markdown = body.replace(/\\\n/g, "\n").replace(/\n{3,}/g, "\n\n");
   await payload.create({
     collection: "posts",

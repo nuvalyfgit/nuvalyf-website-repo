@@ -5,7 +5,7 @@ import { postgresAdapter } from "@payloadcms/db-postgres";
 import { sqliteAdapter } from "@payloadcms/db-sqlite";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { seoPlugin } from "@payloadcms/plugin-seo";
-import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
+import { s3Storage } from "@payloadcms/storage-s3";
 import sharp from "sharp";
 import { Clients, Jobs, Media, Pages, Posts, Team, Testimonials, Users } from "./cms/collections";
 import { Faq, Milestones, Settings, Stats } from "./cms/globals";
@@ -17,7 +17,7 @@ const dbUri = process.env.DATABASE_URI || "";
 /**
  * NuvaLyf website CMS. Admin panel at /admin.
  * Database: Postgres when DATABASE_URI is a postgres URL (production), otherwise a local SQLite file.
- * Images: Vercel Blob when BLOB_READ_WRITE_TOKEN is set (production), otherwise the local media/ folder.
+ * Images: Supabase Storage (S3 API) when S3_ACCESS_KEY_ID is set (production), otherwise the local media/ folder.
  */
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || undefined,
@@ -30,7 +30,7 @@ export default buildConfig({
   globals: [Settings, Faq, Stats, Milestones],
   editor: lexicalEditor(),
   db: dbUri.startsWith("postgres")
-    ? postgresAdapter({ pool: { connectionString: dbUri } })
+    ? postgresAdapter({ pool: { connectionString: dbUri, max: 3 } })
     : sqliteAdapter({ client: { url: dbUri || "file:./nuvalyf-cms.db" } }),
   sharp,
   graphQL: { disable: true },
@@ -45,10 +45,20 @@ export default buildConfig({
       generateURL: ({ doc, collectionSlug }) =>
         collectionSlug === "posts" ? `${SITE}/resources/${doc?.slug ?? ""}` : `${SITE}${doc?.path ?? "/"}`,
     }),
-    vercelBlobStorage({
-      enabled: Boolean(process.env.BLOB_READ_WRITE_TOKEN),
+    s3Storage({
+      enabled: Boolean(process.env.S3_ACCESS_KEY_ID),
       collections: { media: true },
-      token: process.env.BLOB_READ_WRITE_TOKEN || "",
+      bucket: process.env.S3_BUCKET || "media",
+      config: {
+        endpoint: process.env.S3_ENDPOINT,
+        region: process.env.S3_REGION,
+        forcePathStyle: true,
+        credentials: {
+          accessKeyId: process.env.S3_ACCESS_KEY_ID || "",
+          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || "",
+          sessionToken: process.env.S3_SESSION_TOKEN || undefined,
+        },
+      },
     }),
   ],
 });
