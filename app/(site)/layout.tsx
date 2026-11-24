@@ -1,13 +1,12 @@
-import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+﻿import type { Metadata } from "next";
+import { Schibsted_Grotesk, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 // Self-hosted at build time: no layout shift, no third-party request.
-const sans = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+const sans = Schibsted_Grotesk({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jbmono", display: "swap" });
 const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-instrument", display: "swap" });
 import { AnalyticsConsent } from "@/components/analytics-consent";
-import Script from "next/script";
-import { prefsScript } from "@/components/prefs";
 
 const orgJsonLd = {
   "@context": "https://schema.org",
@@ -24,14 +23,14 @@ const orgJsonLd = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nuvalyf.com"),
-  title: { default: "NuvaLyf | Clinic EMR & Online Patient Booking", template: "%s | NuvaLyf" },
+  title: { default: "NuvaLyf | Clinic Management System (CMS) & EMR Software", template: "%s | NuvaLyf" },
   description:
-    "NuvaLyf EMR runs your clinic: records, queue, prescriptions and billing. DocConnect lets patients book online and track their turn live. Book a demo today.",
+    "NuvaLyf CMS, our clinic management and EMR software, runs your clinic: records, queue, prescriptions and billing. DocConnect lets patients book online and track their turn live. Book a demo today.",
   openGraph: {
     type: "website",
     siteName: "NuvaLyf",
-    title: "NuvaLyf | Run your clinic. Fill it with patients.",
-    description: "Clinic EMR and DocConnect online booking with a live queue, for India and the UAE.",
+    title: "NuvaLyf | Run your whole clinic day from one screen",
+    description: "Clinic management system (CMS) and DocConnect online booking with a live queue, for India and the UAE.",
   },
   keywords: [
     "Clinic Management Software India",
@@ -52,10 +51,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${sans.variable} ${serif.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`scroll-smooth ${sans.variable} ${serif.variable} ${mono.variable}`} suppressHydrationWarning>
 
       <body>
-        <Script id="nv-prefs" strategy="beforeInteractive">{prefsScript}</Script>
         {children}
         <AnalyticsConsent />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />

@@ -145,14 +145,14 @@ export function Hero({ clientCount = reach.clients.value }: { clientCount?: numb
           </div>
 
           <h1 className="t-display font-display text-white">
-            <span className="mb-4 block font-sans text-sm font-bold uppercase tracking-[0.18em] text-[#5EEAD4]">Clinic EMR &amp; online booking software</span>
+            <span className="mb-4 block font-sans text-sm font-bold uppercase tracking-[0.18em] text-[#5EEAD4]">Clinic management system &amp; online booking software</span>
             Run your clinic.
             <br />
             <span className="bg-[linear-gradient(100deg,#14B8A6_0%,#5EEAD4_38%,#6EE7B7_100%)] bg-clip-text text-transparent">Fill it with patients.</span>
           </h1>
 
           <p className="t-lead mt-8 max-w-xl text-white/60">
-            NuvaLyf EMR brings records, queue, prescriptions and billing into one secure platform. DocConnect lets patients book online and track their turn live. Use them together, or connect DocConnect to the EMR you already have.
+            NuvaLyf CMS brings records, queue, prescriptions and billing into one secure platform. DocConnect lets patients book online and track their turn live. Use them together, or connect DocConnect to the system you already have.
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -167,7 +167,7 @@ export function Hero({ clientCount = reach.clients.value }: { clientCount?: numb
           <VideoButton className="mt-6" />
 
           <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-white/60">
-            {["NuvaLyf EMR for clinic teams", "DocConnect for patients", "Works with your existing EMR"].map((item) => (
+            {["NuvaLyf CMS for clinic teams", "DocConnect for patients", "Works with your existing EMR"].map((item) => (
               <span key={item} className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-[#14B8A6]" />
                 {item}

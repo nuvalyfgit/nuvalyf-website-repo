@@ -107,10 +107,10 @@ for (const f of files("content/posts", ".mdoc")) {
 
 // ---- one SEO entry per fixed page, empty so the built-in defaults apply until edited
 const PAGES: [string, string][] = [
-  ["/", "Home"], ["/pricing", "Pricing"], ["/products", "Products & features"], ["/solutions", "Solutions"],
+  ["/", "Home"], ["/products", "Products & features"], ["/solutions", "Solutions"],
   ["/for-doctors", "For doctors"], ["/for-hospitals", "For hospitals & clinics"], ["/docconnect", "DocConnect"],
-  ["/find-a-doctor", "For patients"], ["/about", "About us"], ["/team", "Our team"], ["/careers", "Careers"],
-  ["/resources", "Resources / blog"], ["/contact", "Contact"], ["/book-a-demo", "Book a demo"],
+  ["/find-a-doctor", "For patients"], ["/about", "About us"], ["/careers", "Careers"],
+  ["/blogs", "Blogs"], ["/contact", "Contact"], ["/book-a-demo", "Book a demo"],
 ];
 for (const [p, label] of PAGES) if (!(await exists("pages", "path", p))) await payload.create({ collection: "pages", data: { label, path: p } });
 

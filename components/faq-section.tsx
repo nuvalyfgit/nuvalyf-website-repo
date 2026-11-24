@@ -1,4 +1,4 @@
-import { Plus } from "lucide-react";
+﻿import { Plus } from "lucide-react";
 import { FaqJsonLd } from "@/components/json-ld";
 import { SectionHeading } from "@/components/section-heading";
 import { getFaqs } from "@/lib/cms";
@@ -17,7 +17,7 @@ export async function FaqSection({
   const items = given ?? (await getFaqs(kind));
   if (!items.length) return null;
   return (
-    <section id="faq" className="bg-[#F8FAFC] py-24 sm:py-32">
+    <section id="faq" className="bg-[#F8FAFC] py-14 sm:py-16">
       <FaqJsonLd items={items} />
       <div className="site-container grid gap-12 lg:grid-cols-[.7fr_1fr]">
         <SectionHeading eyebrow={eyebrow} title={title} description="Can't find your answer? Message us on WhatsApp and we'll reply quickly." />

@@ -35,7 +35,7 @@ export function VideoButton({ className = "" }: { className?: string }) {
                 <div>
                   <PlayCircle className="mx-auto h-14 w-14 text-[#14B8A6]" />
                   <h3 className="mt-5 text-2xl font-bold">Demo video coming soon</h3>
-                  <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-white/60">Meanwhile, join the DocConnect early-access list or book a live walkthrough of the EMR with our team.</p>
+                  <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-white/60">Meanwhile, join the DocConnect early-access list or book a live walkthrough of the CMS with our team.</p>
                   <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
                     <a href={docconnect.earlyAccessUrl} className="rounded-full bg-[#14B8A6] px-6 py-3 text-sm font-bold text-[#042F2E] hover:bg-[#2DD4BF]">Get DocConnect early access</a>
                     <a href="/book-a-demo" onClick={() => setOpen(false)} className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold hover:bg-white/10">Book a live demo</a>

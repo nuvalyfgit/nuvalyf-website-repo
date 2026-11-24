@@ -3,7 +3,7 @@ import { BarChart3, Building2, FileLock2, ListOrdered, Pill, ShieldCheck, UsersR
 import { EnquiryForm } from "@/components/enquiry-form";
 import { CardGrid, PageHero, Section } from "@/components/page-parts";
 import { PageShell } from "@/components/page-shell";
-import { SecuritySection } from "@/components/security-section";
+import { Proof } from "@/components/home/v2";
 import { SectionHeading } from "@/components/section-heading";
 import { pageSeo } from "@/lib/seo";
 
@@ -32,20 +32,21 @@ export default function ForHospitalsPage() {
   return (
     <PageShell crumbs={[["For hospitals & clinics", "/for-hospitals"]]}>
       <PageHero
+        screen="queue"
         eyebrow="For hospitals & clinics"
-        title="One platform for"
-        highlight="every department."
+        title="One software for"
+        highlight="your whole hospital."
         lead="From the front desk to the pharmacy to the owner's dashboard, NuvaLyf connects staff, patients and data so your organisation runs as one."
         primary={{ label: "Send an enquiry", href: "#enquiry" }}
         secondary={{ label: "Book a demo", href: "/book-a-demo" }}
       />
 
       <Section>
-        <SectionHeading eyebrow="What you get" title="Built for multi-doctor clinics and growing groups." align="center" />
+        <SectionHeading eyebrow="What you get" title="Made for clinics with many doctors." align="center" />
         <CardGrid items={solutions} cols={4} />
       </Section>
 
-      <SecuritySection />
+      <Proof />
 
       <Section id="enquiry" tint>
         <div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">

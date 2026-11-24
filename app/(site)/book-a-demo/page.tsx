@@ -8,7 +8,7 @@ import { pageSeo } from "@/lib/seo";
 const baseMetadata: Metadata = {
   alternates: { canonical: "/book-a-demo" },
   title: "Book a Demo",
-  description: "Book a free 30-minute demo of NuvaLyf EMR and DocConnect. Pick a date and time that suits you.",
+  description: "Book a free 30-minute demo of NuvaLyf CMS and DocConnect. Pick a date and time that suits you.",
 };
 
 const what = [
@@ -25,10 +25,10 @@ export function generateMetadata() {
 export default function BookADemoPage() {
   return (
     <PageShell crumbs={[["Book a demo", "/book-a-demo"]]}>
-      <PageHero eyebrow="Book a demo" title="See NuvaLyf in action." lead="Tell us about your clinic and choose a time. We'll confirm by email and WhatsApp." primary={null}>
+      <PageHero eyebrow="Book a demo" title="Book a free demo." lead="Tell us about your clinic and choose a time. We'll confirm by email and WhatsApp." primary={null}>
         <ul className="grid gap-3 sm:grid-cols-2">
           {what.map(({ Icon, t }) => (
-            <li key={t} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.045] p-4 text-sm font-semibold text-white/80"><Icon className="h-5 w-5 shrink-0 text-[#14B8A6]" />{t}</li>
+            <li key={t} className="flex items-center gap-3 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-4 text-sm font-semibold text-[#334155]"><Icon className="h-5 w-5 shrink-0 text-[#14B8A6]" />{t}</li>
           ))}
         </ul>
       </PageHero>

@@ -93,7 +93,7 @@ export default function ArabicHome() {
           </div>
         </section>
 
-        <section id="products" className="bg-white py-20 sm:py-28">
+        <section id="products" className="bg-white py-14 sm:py-16">
           <div className="site-container">
             <p className="text-sm font-bold text-[#047857]">منتجان، منصة واحدة</p>
             <h2 className="mt-4 text-4xl font-bold leading-tight text-[#0F172A]">كل ما تحتاجه عيادتك.</h2>
@@ -109,7 +109,7 @@ export default function ArabicHome() {
           </div>
         </section>
 
-        <section id="docconnect" className="bg-[#F8FAFC] py-20 sm:py-28">
+        <section id="docconnect" className="bg-[#F8FAFC] py-14 sm:py-16">
           <div className="site-container">
             <p className="text-sm font-bold text-[#047857]">دوك كونكت</p>
             <h2 className="mt-4 text-4xl font-bold leading-tight text-[#0F172A]">رحلة مريض واحدة، من الحجز إلى الوصفة.</h2>
@@ -138,7 +138,7 @@ export default function ArabicHome() {
           </div>
         </section>
 
-        <section id="faq" className="bg-white py-20 sm:py-28">
+        <section id="faq" className="bg-white py-14 sm:py-16">
           <div className="site-container max-w-3xl">
             <h2 className="text-4xl font-bold text-[#0F172A]">الأسئلة الشائعة</h2>
             <div className="mt-10 divide-y divide-[#E2E8F0] rounded-[24px] border border-[#E2E8F0]">
@@ -154,7 +154,7 @@ export default function ArabicHome() {
           </div>
         </section>
 
-        <section id="contact" className="bg-[#F1F5F9] py-20 sm:py-28">
+        <section id="contact" className="bg-[#F1F5F9] py-14 sm:py-16">
           <div className="site-container max-w-4xl text-center">
             <h2 className="text-4xl font-bold text-[#0F172A]">لنحدّث عيادتك معاً.</h2>
             <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-[#475569]">تواصل معنا عبر واتساب أو الهاتف أو البريد الإلكتروني، وسنعرض لك النظام بما يناسب طريقة عملك.</p>

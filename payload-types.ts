@@ -148,7 +148,7 @@ export interface UserAuthOperations {
   };
 }
 /**
- * Articles on /resources. Save as a draft, preview, then Publish. Use the SEO tab before publishing.
+ * Articles on /blogs. Save as a draft, preview, then Publish. Use the SEO tab before publishing.
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts".
@@ -211,7 +211,6 @@ export interface Post {
 export interface Media {
   id: number;
   alt: string;
-  _objectKey?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -260,7 +259,7 @@ export interface Page {
   id: number;
   label: string;
   /**
-   * The page address, e.g. / or /pricing
+   * The page address, e.g. / or /products
    */
   path: string;
   meta?: {
@@ -663,7 +662,6 @@ export interface ClientsSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
-  _objectKey?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;

@@ -28,7 +28,7 @@ export default async function ContactPage() {
   const { social } = await getSettings();
   return (
     <PageShell crumbs={[["Contact", "/contact"]]}>
-      <PageHero eyebrow="Contact us" title="We'd love to hear from you." lead="Questions about the EMR or DocConnect, support for your clinic, or partnerships. Our team replies within one working day." primary={null} />
+      <PageHero eyebrow="Contact us" title="Talk to us." lead="Questions about the CMS or DocConnect, support for your clinic, or partnerships. Our team replies within one working day." primary={null} />
 
       <Section tint>
         <div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr]">

@@ -1,7 +1,7 @@
 import { MessageCircle } from "lucide-react";
 import { contact } from "@/data/site-content";
 
-const text = encodeURIComponent("Hi NuvaLyf, I'd like to know more about the EMR / DocConnect.");
+const text = encodeURIComponent("Hi NuvaLyf, I'd like to know more about the CMS / DocConnect.");
 
 export function WhatsAppButton() {
   return (

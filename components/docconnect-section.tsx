@@ -16,19 +16,19 @@ const audiences = [
   {
     Icon: Stethoscope,
     title: "For doctors",
-    points: ["Your own booking link and QR, 0% commission", "One-tap “running late” alert to every waiting patient", "Online and walk-in patients in one line"],
+    points: ["Your own booking link, 0% commission", "One-tap “running late” alert to every waiting patient", "Online and walk-in patients in one line"],
   },
   {
     Icon: UsersRound,
     title: "For clinics",
-    points: ["Fewer empty slots and no-shows", "Waiting-room TV with token numbers only", "QR check-in at the door"],
+    points: ["Fewer empty slots and no-shows", "Waiting-room TV with token numbers only"],
   },
 ];
 
 const flow = [
   { Icon: Search, title: "Patient books", text: "On DocConnect, from the app or the doctor’s link." },
-  { Icon: ClipboardList, title: "Lands in the EMR", text: "The booking appears in the clinic’s live queue." },
-  { Icon: Stethoscope, title: "Doctor consults", text: "Notes, vitals and prescription in the EMR." },
+  { Icon: ClipboardList, title: "Lands in the CMS", text: "The booking appears in the clinic’s live queue." },
+  { Icon: Stethoscope, title: "Doctor consults", text: "Notes, vitals and prescription in the CMS." },
   { Icon: BellRing, title: "Back to the patient", text: "Prescription and follow-up reach the patient’s app." },
 ];
 
@@ -75,7 +75,7 @@ export function LiveTicket() {
 
             <div className="mt-3 flex items-center justify-between rounded-2xl border border-[#E2E8F0] bg-white px-3.5 py-3 text-xs">
               <span className="flex items-center gap-2 font-semibold text-[#475569]"><QrCode className="h-4 w-4 text-[#059669]" />Check in at the door</span>
-              <span className="font-bold text-[#059669]">Show QR</span>
+              <span className="font-bold text-[#059669]">Show token</span>
             </div>
           </div>
         </div>
@@ -98,7 +98,7 @@ export function DocConnectSection() {
             </span>
             <SectionHeading
               eyebrow="Patient booking"
-              title="Your EMR runs the clinic. DocConnect fills it."
+              title="Your CMS runs the clinic. DocConnect fills it."
               description="Patients find your doctors, book online and watch their place in line live, so they arrive on time instead of waiting an hour in the lobby."
               inverse
             />
@@ -133,12 +133,12 @@ export function DocConnectSection() {
         </div>
       </section>
 
-      <section id="together" className="bg-white py-24 sm:py-32">
+      <section id="together" className="bg-white py-14 sm:py-16">
         <div className="site-container">
           <SectionHeading
             eyebrow="Better together"
             title="One patient journey, from booking to prescription."
-            description="DocConnect and NuvaLyf EMR share the same appointments and queue, so nobody types anything twice."
+            description="DocConnect and NuvaLyf CMS share the same appointments and queue, so nobody types anything twice."
             align="center"
           />
 
@@ -160,7 +160,7 @@ export function DocConnectSection() {
           <div className="mt-20 grid gap-5 lg:grid-cols-2">
             <div className="card-lift rounded-[26px] bg-[linear-gradient(160deg,#0F172A_0%,#084b45_100%)] p-8 text-white">
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#99F6E4]">Complete package</p>
-              <h3 className="mt-3 text-2xl font-bold">NuvaLyf EMR + DocConnect</h3>
+              <h3 className="mt-3 text-2xl font-bold">NuvaLyf CMS + DocConnect</h3>
               <p className="mt-3 text-sm leading-6 text-white/65">Run the clinic and take online bookings on one connected platform. Appointments, queue and prescriptions stay in sync automatically.</p>
               <ul className="mt-6 space-y-2.5 text-sm">
                 {["Built in, nothing to connect", "One login for your clinic team", "Live queue shared with patients", "One support team"].map((p) => (

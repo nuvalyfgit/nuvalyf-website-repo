@@ -4,9 +4,9 @@ import { CardGrid, CtaBand, PageHero, Section } from "@/components/page-parts";
 import { PageShell } from "@/components/page-shell";
 import { SectionHeading } from "@/components/section-heading";
 import { StatsBand } from "@/components/stats-band";
-import { TeamCard } from "@/components/team-card";
-import { getMilestones, getTeam } from "@/lib/cms";
+import { getMilestones } from "@/lib/cms";
 import { pageSeo } from "@/lib/seo";
+import { Team } from "@/components/home/v2";
 
 const baseMetadata: Metadata = {
   alternates: { canonical: "/about" },
@@ -32,32 +32,30 @@ export function generateMetadata() {
 }
 
 export default async function AboutPage() {
-  const [milestones, team] = await Promise.all([getMilestones(), getTeam()]);
-  const leaders = team.filter((m) => m.department === "leadership");
+  const milestones = await getMilestones();
 
   return (
     <PageShell crumbs={[["About us", "/about"]]}>
       <PageHero
         eyebrow="About NuvaLyf"
-        title="Building better digital"
-        highlight="foundations for healthcare."
+        title="Simple software for clinics"
+        highlight="in India and the UAE."
         lead="Healthcare professionals should spend more time caring for patients and less time managing disconnected systems. NuvaLyf is building a simple, secure digital foundation for clinics across India, the UAE and beyond."
-        secondary={{ label: "Meet the team", href: "/team" }}
       />
 
       <Section>
         <div className="grid gap-14 lg:grid-cols-[.9fr_1.1fr]">
-          <SectionHeading eyebrow="Our story" title="Started in the clinic, not in a boardroom." />
+          <SectionHeading eyebrow="Our story" title="Why we started NuvaLyf." />
           <div className="reveal space-y-5 text-[17px] leading-8 text-[#475569]">
             <p>NuvaLyf began with a simple observation: clinics were running on a patchwork of registers, spreadsheets and apps that didn&apos;t talk to each other. Doctors lost time searching for history, front desks juggled calls, and patients waited without knowing when they would be seen.</p>
-            <p>We set out to bring registration, appointments, the live queue, consultations, prescriptions, billing and patient communication into one connected record. Today, more than 50 clinics across India and the UAE run their everyday operations on NuvaLyf EMR.</p>
+            <p>We set out to bring registration, appointments, the live queue, consultations, prescriptions, billing and patient communication into one connected record. Today, more than 50 clinics across India and the UAE run their everyday operations on NuvaLyf CMS.</p>
             <p>Next, DocConnect extends the same record to patients, letting them book online and see their place in the queue live.</p>
           </div>
         </div>
       </Section>
 
       <Section tint>
-        <SectionHeading eyebrow="Why we exist" title="The problems we set out to solve." align="center" />
+        <SectionHeading eyebrow="Why we exist" title="Problems we solve." align="center" />
         <CardGrid items={problems} />
       </Section>
 
@@ -83,15 +81,15 @@ export default async function AboutPage() {
       </section>
 
       <Section>
-        <SectionHeading eyebrow="Values & objectives" title="What guides every decision." align="center" />
+        <SectionHeading eyebrow="Values & objectives" title="What we believe in." align="center" />
         <CardGrid items={values} cols={4} />
       </Section>
 
       <Section tint>
         <div className="grid gap-14 lg:grid-cols-[.9fr_1.1fr]">
           <div>
-            <SectionHeading eyebrow="Connected healthcare" title="One patient. One connected record." description="Every stage of the visit, from registration to follow-up, writes to the same record. The EMR runs the clinic; DocConnect connects patients to it. Nothing is re-entered, re-asked or reconciled later." />
-            <div className="mt-8 flex items-center gap-3 text-sm font-semibold text-[#059669]"><Network className="h-5 w-5" /> EMR + DocConnect, one source of truth</div>
+            <SectionHeading eyebrow="Connected healthcare" title="All patient details in one place." description="Every stage of the visit, from registration to follow-up, writes to the same record. The CMS runs the clinic; DocConnect connects patients to it. Nothing is re-entered, re-asked or reconciled later." />
+            <div className="mt-8 flex items-center gap-3 text-sm font-semibold text-[#059669]"><Network className="h-5 w-5" /> CMS + DocConnect, one source of truth</div>
           </div>
           <ol className="reveal relative space-y-6 border-l border-[#CBD5E1] pl-8">
             {milestones.map((m) => (
@@ -107,17 +105,11 @@ export default async function AboutPage() {
       </Section>
 
       <Section>
-        <SectionHeading eyebrow="Achievements" title="Trusted by clinics across borders." />
+        <SectionHeading eyebrow="Achievements" title="Clinics that use NuvaLyf." />
         <div className="mt-12"><StatsBand /></div>
       </Section>
 
-      <Section tint>
-        <SectionHeading eyebrow="Founder-led" title="The people behind NuvaLyf." align="center" />
-        <div className="reveal-stagger mx-auto mt-14 grid max-w-4xl gap-6 md:grid-cols-2">
-          {leaders.map((m) => <TeamCard key={m.slug} m={m} compact />)}
-        </div>
-        <p className="mt-10 text-center"><a href="/team" className="text-sm font-bold text-[#059669] hover:underline">See the whole team →</a></p>
-      </Section>
+      <Team />
 
       <CtaBand />
     </PageShell>

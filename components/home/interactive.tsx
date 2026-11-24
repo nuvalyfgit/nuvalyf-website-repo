@@ -1,5 +1,6 @@
 "use client";
 
+import { RollNumber } from "./live";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Check, FileText, PhoneCall, Send, UserRound } from "lucide-react";
 
@@ -97,9 +98,9 @@ export function WaitCalculator() {
       <div className="flex flex-col justify-between rounded-[22px] bg-[#0b1120] p-7 text-white">
         <div>
           <p className="text-sm text-white/60">Patient waiting time saved each month</p>
-          <p className="mt-1 font-display text-6xl font-semibold nv-gradient-text">{hoursSaved.toLocaleString("en-IN")} h</p>
+          <p className="mt-1 font-display text-6xl font-semibold nv-gradient-text"><RollNumber value={hoursSaved} /> h</p>
           <p className="mt-6 text-sm text-white/60">Potential extra visits from fewer no-shows</p>
-          <p className="mt-1 font-display text-3xl font-semibold">{extraSlots} · ₹{revenue.toLocaleString("en-IN")}</p>
+          <p className="mt-1 font-display text-3xl font-semibold"><RollNumber value={extraSlots} /> · ₹<RollNumber value={revenue} /></p>
         </div>
         <div>
           <p className="mt-6 text-xs leading-5 text-white/45">Estimate only. Assumes live ETAs cut waiting by about 30% and reminders recover about 5% of visits. Your numbers will vary.</p>

@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title,
     description,
-    alternates: { canonical: `/resources/${slug}` },
-    openGraph: { type: "article", title, description, publishedTime: post.date ?? undefined, modifiedTime: post.updated, images: (post.seo.image || post.cover) ? [{ url: (post.seo.image || post.cover)!, alt: post.coverAlt }] : undefined },
+    alternates: { canonical: `/blogs/${slug}` },
+    openGraph: { type: "article", title, description, publishedTime: post.date ?? undefined, modifiedTime: post.updated, images: (post.seo.image || post.cover) ? [{ url: (post.seo.image || post.cover)!, alt: post.coverAlt }] : [{ url: "/og.png", width: 1200, height: 630 }] },
   };
 }
 
@@ -37,19 +37,19 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const related = await getRelatedPosts(slug, post.tags);
 
   return (
-    <PageShell crumbs={[["Resources", "/resources"], [post.title, `/resources/${slug}`]]}>
+    <PageShell crumbs={[["Blogs", "/blogs"], [post.title, `/blogs/${slug}`]]}>
       <JsonLd data={{
         "@context": "https://schema.org", "@type": "BlogPosting", headline: post.title, description: post.seo.description || post.summary,
         datePublished: post.date, dateModified: post.updated, author: { "@type": "Organization", name: post.author },
         publisher: { "@type": "Organization", name: "NuvaLyf", logo: { "@type": "ImageObject", url: "https://nuvalyf.com/nuva-lyf-logo.png" } },
         image: post.cover ? [post.cover.startsWith("http") ? post.cover : `https://nuvalyf.com${post.cover}`] : undefined,
-        mainEntityOfPage: `https://nuvalyf.com/resources/${slug}`,
+        mainEntityOfPage: `https://nuvalyf.com/blogs/${slug}`,
       }} />
       <article className="bg-white">
         <header className="nv-hero relative py-16 text-white sm:py-24">
           <div className="nv-grid" />
           <div className="mx-auto max-w-3xl px-5">
-            <a href="/resources" className="inline-flex items-center gap-1.5 text-sm font-semibold text-white/60 hover:text-white"><ArrowLeft className="h-4 w-4" />All resources</a>
+            <a href="/blogs" className="inline-flex items-center gap-1.5 text-sm font-semibold text-white/60 hover:text-white"><ArrowLeft className="h-4 w-4" />All blogs</a>
             <p className="mt-8 text-xs font-bold uppercase tracking-wider text-[#14B8A6]">{categoryLabels[post.category] ?? post.category}</p>
             <h1 className="mt-3 font-display text-4xl font-semibold leading-tight sm:text-5xl">{post.title}</h1>
             <p className="mt-5 text-sm text-white/55">{post.author} · {formatDate(post.date)}</p>
@@ -73,7 +73,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             <h2 className="font-display text-2xl font-semibold text-[#0F172A]">Related reading</h2>
             <div className="mt-8 grid gap-5 md:grid-cols-3">
               {related.map((r) => (
-                <a key={r.slug} href={`/resources/${r.slug}`} className="card-lift group flex flex-col rounded-[20px] border border-[#E2E8F0] bg-white p-6">
+                <a key={r.slug} href={`/blogs/${r.slug}`} className="card-lift group flex flex-col rounded-[20px] border border-[#E2E8F0] bg-white p-6">
                   <span className="text-xs font-bold uppercase tracking-wider text-[#059669]">{categoryLabels[r.category] ?? r.category}</span>
                   <h3 className="mt-2 flex-1 text-lg font-bold leading-snug text-[#0F172A]">{r.title}</h3>
                   <ArrowRight className="mt-4 h-4 w-4 text-[#059669] transition group-hover:translate-x-1" />

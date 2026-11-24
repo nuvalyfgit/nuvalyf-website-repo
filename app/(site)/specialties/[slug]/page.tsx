@@ -68,7 +68,7 @@ export default async function SpecialtyPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-white py-14 sm:py-16">
         <div className="site-container">
           <SectionHeading eyebrow="Built for your day" title={`What ${s.name.toLowerCase()} clinics use most.`} />
           <div className="mt-12 grid gap-4 md:grid-cols-3">
@@ -83,7 +83,7 @@ export default async function SpecialtyPage({ params }: Props) {
 
           <div className="mt-12 grid gap-4 rounded-[26px] bg-[linear-gradient(160deg,#0F172A_0%,#084b45_100%)] p-8 text-white md:grid-cols-2">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#99F6E4]">NuvaLyf EMR</p>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#99F6E4]">NuvaLyf CMS</p>
               <p className="mt-2 text-sm leading-6 text-white/70">Records, live queue, prescriptions, documents, billing and reminders for your {s.name.toLowerCase()} practice.</p>
             </div>
             <div>

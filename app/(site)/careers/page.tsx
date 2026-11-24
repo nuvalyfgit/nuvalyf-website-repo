@@ -32,10 +32,10 @@ export default async function CareersPage() {
 
   return (
     <PageShell crumbs={[["Careers", "/careers"]]}>
-      <PageHero eyebrow="Careers" title="Build the future of" highlight="connected healthcare." lead="We're a founder-led team making clinic technology simple, secure and accessible. Come build it with us." primary={{ label: "See open roles", href: "#roles" }} />
+      <PageHero eyebrow="Careers" title="Work with us" highlight="at NuvaLyf." lead="We're a founder-led team making clinic technology simple, secure and accessible. Come build it with us." primary={{ label: "See open roles", href: "#roles" }} />
 
       <Section>
-        <SectionHeading eyebrow="Why NuvaLyf" title="A place to do your best work." align="center" />
+        <SectionHeading eyebrow="Why NuvaLyf" title="Why work here." align="center" />
         <CardGrid items={why} cols={4} />
       </Section>
 

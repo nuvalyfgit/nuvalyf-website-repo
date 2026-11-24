@@ -25,9 +25,9 @@ const fields = [
 ] as const;
 
 const products = [
-  { value: "NuvaLyf EMR", label: "NuvaLyf EMR", hint: "Run the clinic" },
+  { value: "NuvaLyf CMS", label: "NuvaLyf CMS", hint: "Run the clinic" },
   { value: "DocConnect", label: "DocConnect", hint: "Online booking" },
-  { value: "EMR + DocConnect", label: "Both", hint: "Full package" },
+  { value: "CMS + DocConnect", label: "Both", hint: "Full package" },
 ];
 
 const contactItems = [
@@ -90,10 +90,10 @@ export function DemoForm() {
   }
 
   return (
-    <section id="contact" className="bg-[#F1F5F9] py-24 sm:py-32">
+    <section id="contact" className="bg-[#F1F5F9] py-14 sm:py-16">
       <div className="site-container grid gap-10 lg:grid-cols-[.72fr_1fr] lg:gap-16">
         <div>
-          <SectionHeading eyebrow="Book a demonstration" title="Let’s modernise your clinic." description="Tell us about your clinic and we’ll show you the EMR, DocConnect, or both, set up for the way you work. A 30-minute call, no obligation." />
+          <SectionHeading eyebrow="Book a demonstration" title="Let’s modernise your clinic." description="Tell us about your clinic and we’ll show you the CMS, DocConnect, or both, set up for the way you work. A 30-minute call, no obligation." />
           <div className="mt-10 space-y-4">
             {contactItems.map(({ Icon, text, href, external }) => {
               const content = <><span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-[#059669]"><Icon className="h-4 w-4"/></span><span className="break-all">{text}</span></>;

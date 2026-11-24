@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
-import { CalendarClock, ClipboardList, FileText, Search, Stethoscope, UserRound } from "lucide-react";
-import { IPhoneJourney } from "@/components/iphone-journey";
 import { CardGrid, CtaBand, PageHero, Section } from "@/components/page-parts";
 import { PageShell } from "@/components/page-shell";
 import { SectionHeading } from "@/components/section-heading";
+import { Walkthrough, type Step } from "@/components/home/v2-client";
+import { RxCard } from "@/components/home/creative";
+import type { Metadata } from "next";
+import { CalendarClock, ClipboardList, FileText, Search, Stethoscope, UserRound } from "lucide-react";
 import { pageSeo } from "@/lib/seo";
 
 const baseMetadata: Metadata = {
@@ -25,32 +26,30 @@ export function generateMetadata() {
   return pageSeo("/for-doctors", baseMetadata);
 }
 
+const doctorDay: Step[] = [
+  { k: "Before", t: "Know the patient before they sit down", d: "Vitals from the front desk, past visits and allergies, already on your screen.", screen: "consult" },
+  { k: "During", t: "Write the prescription in seconds", d: "Favourites, templates and dose suggestions. No retyping the same medicines.", screen: "rx" },
+  { k: "After", t: "Patients get it on WhatsApp", d: "Prescription and follow-up date go out automatically. The next patient is already called.", screen: "queue" },
+];
+
 export default function ForDoctorsPage() {
   return (
     <PageShell crumbs={[["For doctors", "/for-doctors"]]}>
       <PageHero
         eyebrow="For doctors"
-        title="Spend your time on patients."
-        highlight="Not on paperwork."
-        lead="NuvaLyf simplifies everyday clinical work: the context you need before you start, faster notes and prescriptions, and a calmer queue."
+        title="Less paperwork,"
+        highlight="more time with patients."
+        lead="The context you need before you start, faster prescriptions, and a calmer queue."
         secondary={{ label: "See all features", href: "/products" }}
+        screen="rx"
       />
-
-      <Section>
-        <SectionHeading eyebrow="Built around the doctor" title="Everything in the consultation, nothing in the way." align="center" />
-        <CardGrid items={benefits} />
+      <Walkthrough eyebrow="Your consultation" title="Your consultation, made easy." steps={doctorDay} />
+      <RxCard />
+      <Section tint>
+        <SectionHeading eyebrow="Built around the doctor" title="What you get." />
+        <CardGrid items={benefits} cols={4} />
       </Section>
-
-      <section className="nv-hero relative py-20 text-white sm:py-28">
-        <div className="nv-aurora"><span /><span /><span /></div>
-        <div className="nv-grid" />
-        <div className="site-container grid items-center gap-14 lg:grid-cols-[1.1fr_.9fr]">
-          <SectionHeading inverse eyebrow="DocConnect for doctors" title="Get found by patients near you." description="Your NuvaLyf profile becomes a verified DocConnect listing. Patients book a time, see their place in the queue live and arrive when you're ready for them." />
-          <IPhoneJourney />
-        </div>
-      </section>
-
-      <CtaBand title="See it with your own workflow." text="Book a 30-minute demo and we'll walk through a consultation the way you run it." />
+      <CtaBand title="Book a free demo." text="A 30-minute demo, run the way you consult." />
     </PageShell>
   );
 }

@@ -6,7 +6,7 @@ export const navigation: NavItem[] = [
   {
     label: "Products",
     items: [
-      { label: "Products & Features", href: "/products", description: "All 14 EMR modules" },
+      { label: "Products & Features", href: "/products", description: "All 14 CMS modules" },
       { label: "DocConnect", href: "/docconnect", description: "Online booking with a live queue" },
       { label: "For patients", href: "/find-a-doctor", description: "Find a doctor and book" },
     ],
@@ -23,12 +23,10 @@ export const navigation: NavItem[] = [
     label: "Company",
     items: [
       { label: "About Us", href: "/about", description: "Our story, mission and values" },
-      { label: "Our Team", href: "/team", description: "The people building NuvaLyf" },
       { label: "Careers", href: "/careers", description: "Join us" },
     ],
   },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Resources", href: "/resources" },
+  { label: "Blogs", href: "/blogs" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -72,7 +70,7 @@ export const features = [
   { icon: "users", title: "Patient Management", description: "Registration, duplicate checks, medical history and one clear patient record." },
   { icon: "calendar", title: "Appointments", description: "Manage bookings, walk-ins, follow-ups and appointment status from one view." },
   { icon: "queue", title: "Live Queue", description: "Keep reception and doctors aligned with a clear, reorderable patient queue." },
-  { icon: "clinical", title: "Clinical EMR", description: "Capture vitals, diagnoses, notes, allergies and structured consultation history." },
+  { icon: "clinical", title: "Clinical records (EMR)", description: "Capture vitals, diagnoses, notes, allergies and structured consultation history." },
   { icon: "prescription", title: "Digital Prescriptions", description: "Create professional prescriptions with dosage guidance, preview and PDF export." },
   { icon: "documents", title: "Documents & Reports", description: "Store patient reports, scans, attachments and prescriptions with controlled access." },
   { icon: "billing", title: "Clinic Billing", description: "Create invoices, record payments and connect collections to patient visits." },
@@ -113,7 +111,7 @@ export const platformTabs = [
   },
   {
     value: "clinical",
-    label: "Clinical EMR",
+    label: "Clinical records (EMR)",
     eyebrow: "Designed around the doctor",
     title: "Clinical context, ready when it matters.",
     description: "Bring allergies, vitals, notes, diagnoses, templates and prior visits into a fast consultation workflow.",

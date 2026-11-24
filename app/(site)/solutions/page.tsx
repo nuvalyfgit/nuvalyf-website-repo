@@ -29,15 +29,16 @@ export default function SolutionsPage() {
   return (
     <PageShell crumbs={[["Solutions", "/solutions"]]}>
       <PageHero
+        screen="queue"
         eyebrow="Solutions"
-        title="Built for every part"
-        highlight="of your clinic."
+        title="Solutions for"
+        highlight="every clinic."
         lead="Give each person the tools and visibility they need, while keeping permissions appropriate to their role."
         secondary={{ label: "Browse specialties", href: "#specialties" }}
       />
 
       <Section>
-        <SectionHeading eyebrow="By role" title="Find the right fit for your team." align="center" />
+        <SectionHeading eyebrow="By role" title="Choose what fits you." align="center" />
         <div className="reveal-stagger mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {roles.map(({ Icon, title, text, href }) => (
             <a key={title} href={href} className="card-lift group rounded-[22px] border border-[#E2E8F0] bg-white p-7">
@@ -51,7 +52,7 @@ export default function SolutionsPage() {
       </Section>
 
       <Section id="specialties" tint>
-        <SectionHeading eyebrow="By specialty" title="Built for the way you practise." description="The same connected core supports a wide range of outpatient care settings." align="center" />
+        <SectionHeading eyebrow="By specialty" title="Made for your specialty." description="The same connected core supports a wide range of outpatient care settings." align="center" />
         <div className="reveal-stagger mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {specialtyPages.map((s) => (
             <a key={s.slug} href={`/specialties/${s.slug}`} className="flex items-center justify-between rounded-2xl border border-[#E2E8F0] bg-white px-5 py-4 text-sm font-semibold text-[#0F172A] transition hover:border-[#059669] hover:text-[#059669]">

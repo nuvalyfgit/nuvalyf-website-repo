@@ -1,16 +1,10 @@
-import { AboutTeamSection } from "@/components/about-team-section";
 import { WhatsAppButton } from "@/components/whatsapp-button";
-import { DemoForm } from "@/components/demo-form";
 import { FaqSection } from "@/components/faq-section";
 import { MobileActionBar } from "@/components/mobile-action-bar";
-import { FinalCta } from "@/components/final-cta";
-import { Bento, CinematicHero, DocConnectBand, StorySection, TrustStrip } from "@/components/home/sections";
-import { SpotlightTracker } from "@/components/home/effects";
-import { Story } from "@/components/home/story";
-import { BeforeAfterSection, CalculatorSection, GlobeNumbers, TryDemoSection } from "@/components/home/more-sections";
+import { Cta, Hero, Integrations, Numbers, Proof, Team } from "@/components/home/v2";
+import { SpecialtyRail, Walkthrough } from "@/components/home/v2-client";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { SocialProof } from "@/components/social-proof";
 import type { Metadata } from "next";
 import { JsonLd, emrSoftwareJsonLd } from "@/components/json-ld";
 import { getStats } from "@/lib/cms";
@@ -26,26 +20,19 @@ export function generateMetadata() {
 
 export default async function Home() {
   const stats = await getStats();
-  const clinics = stats.clinics ?? 50;
   return (
     <main>
       <JsonLd data={emrSoftwareJsonLd} />
       <SiteHeader overlay />
-      <SpotlightTracker />
-      <CinematicHero clinics={clinics} served={stats.patientsServed} period={stats.patientsServedPeriod} />
-      <StorySection><Story /></StorySection>
-      <TryDemoSection />
-      <Bento />
-      <BeforeAfterSection />
-      <GlobeNumbers clinics={clinics} countries={stats.countries ?? 2} />
-      <CalculatorSection />
-      <DocConnectBand />
-      <TrustStrip />
-      <SocialProof />
-      <AboutTeamSection />
+      <Hero clinics={stats.clinics ?? 50} countries={stats.countries ?? 2} />
+      <Walkthrough />
+      <Numbers clinics={stats.clinics ?? 50} countries={stats.countries ?? 2} served={stats.patientsServed ?? null} period={stats.patientsServedPeriod ?? ""} />
+      <SpecialtyRail />
+      <Proof />
+      <Integrations />
+      <Team />
       <FaqSection />
-      <FinalCta />
-      <DemoForm />
+      <Cta />
       <SiteFooter />
       <WhatsAppButton />
       <MobileActionBar />

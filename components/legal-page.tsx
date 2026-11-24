@@ -4,7 +4,7 @@ import { contact } from "@/data/site-content";
 export function LegalPage({ title, updated, sections }: { title: string; updated: string; sections: [string, string][] }) {
   return (
     <PageShell>
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-white py-14 sm:py-16">
         <div className="site-container max-w-3xl">
           <p className="t-eyebrow text-[#047857]">Legal</p>
           <h1 className="t-h2 mt-4 font-display text-[#0F172A]">{title}</h1>

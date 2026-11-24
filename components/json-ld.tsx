@@ -35,7 +35,7 @@ export function FaqJsonLd({ items }: { items: [string, string][] }) {
 export const emrSoftwareJsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "NuvaLyf EMR",
+  name: "NuvaLyf CMS",
   applicationCategory: "BusinessApplication",
   applicationSubCategory: "Clinic management and EMR software",
   operatingSystem: "Web browser",

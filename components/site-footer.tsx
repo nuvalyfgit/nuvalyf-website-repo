@@ -14,7 +14,7 @@ export async function SiteFooter() {
         <div>
           <BrandLogo inverse />
           <p className="mt-5 max-w-sm text-sm leading-7 text-white/55">
-            NuvaLyf EMR runs your clinic. DocConnect brings patients to it. For healthcare providers across India, the UAE and beyond.
+            NuvaLyf CMS runs your clinic. DocConnect brings patients to it. For healthcare providers across India, the UAE and beyond.
           </p>
           {social.length > 0 && (
             <div className="mt-6 flex flex-wrap gap-2">
@@ -53,7 +53,7 @@ export async function SiteFooter() {
       <div className="border-t border-white/10">
         <div className="site-container flex flex-col gap-2 py-5 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} NuvaLyf. All rights reserved.</span>
-          <span>Clinic EMR &amp; Online Patient Booking</span>
+          <span>Clinic Management System &amp; Online Booking</span>
         </div>
       </div>
     </footer>

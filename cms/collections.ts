@@ -12,7 +12,7 @@ export const refresh = (...paths: string[]) => {
   }
 };
 const afterSave = (...paths: string[]): CollectionAfterChangeHook => ({ doc }) => {
-  refresh(...paths, ...(doc?.slug ? [`/resources/${doc.slug}`] : []), ...(doc?.path ? [doc.path] : []));
+  refresh(...paths, ...(doc?.slug ? [`/blogs/${doc.slug}`] : []), ...(doc?.path ? [doc.path] : []));
   return doc;
 };
 
@@ -81,14 +81,14 @@ export const Media: CollectionConfig = {
 
 export const Posts: CollectionConfig = {
   slug: "posts",
-  hooks: { afterChange: [afterSave("/resources", "/", "/sitemap.xml")] },
+  hooks: { afterChange: [afterSave("/blogs", "/", "/sitemap.xml")] },
   labels: { singular: "Blog post", plural: "Blog posts" },
   admin: {
     useAsTitle: "title",
     group: "Content",
     defaultColumns: ["title", "category", "publishedAt", "_status"],
-    description: "Articles on /resources. Save as a draft, preview, then Publish. Use the SEO tab before publishing.",
-    preview: (doc) => `/resources/${doc?.slug ?? ""}`,
+    description: "Articles on /blogs. Save as a draft, preview, then Publish. Use the SEO tab before publishing.",
+    preview: (doc) => `/blogs/${doc?.slug ?? ""}`,
   },
   versions: { drafts: { schedulePublish: true }, maxPerDoc: 30 },
   access: { read: publishedOrStaff, create: staff, update: staff, delete: staff },
@@ -127,13 +127,13 @@ export const Pages: CollectionConfig = {
   access: { read: anyone, create: staff, update: staff, delete: staff },
   fields: [
     { name: "label", type: "text", required: true },
-    { name: "path", type: "text", required: true, unique: true, admin: { description: "The page address, e.g. / or /pricing" } },
+    { name: "path", type: "text", required: true, unique: true, admin: { description: "The page address, e.g. / or /products" } },
   ],
 };
 
 export const Team: CollectionConfig = {
   slug: "team",
-  hooks: { afterChange: [afterSave("/team", "/about", "/")] },
+  hooks: { afterChange: [afterSave("/about", "/")] },
   labels: { singular: "Team member", plural: "Team members" },
   admin: { useAsTitle: "name", group: "Company", defaultColumns: ["name", "role", "department", "order"] },
   access: { read: anyone, create: staff, update: staff, delete: staff },

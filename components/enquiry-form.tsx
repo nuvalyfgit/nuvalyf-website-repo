@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,7 +15,7 @@ const fieldsFor: Record<"contact" | "hospital", Field[]> = {
     { name: "fullName", label: "Full name", placeholder: "Your name", required: true },
     { name: "email", label: "Email", type: "email", placeholder: "you@example.com", required: true },
     { name: "phone", label: "Phone (optional)", type: "tel", placeholder: "+91" },
-    { name: "topic", label: "Topic", options: ["General question", "Sales", "Support for existing customers", "Partnerships", "Media", "Careers"] },
+    { name: "topic", label: "Topic", options: ["General question", "Pricing", "Sales", "Support for existing customers", "Partnerships", "Media", "Careers"] },
   ],
   hospital: [
     { name: "fullName", label: "Full name", placeholder: "Your name", required: true },
@@ -31,6 +31,11 @@ const fieldsFor: Record<"contact" | "hospital", Field[]> = {
 export function EnquiryForm({ kind }: { kind: "contact" | "hospital" }) {
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
   const [errors, setErrors] = useState<EnquiryFieldErrors>({});
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get("topic") !== "pricing") return;
+    const s = document.querySelector<HTMLSelectElement>('select[name="topic"]');
+    if (s) s.value = "Pricing";
+  }, []);
   const [formError, setFormError] = useState("");
 
   async function onSubmit(ev: FormEvent<HTMLFormElement>) {

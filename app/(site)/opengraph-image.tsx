@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "NuvaLyf: Run your clinic. Fill it with patients.";
+export const alt = "NuvaLyf: Run your whole clinic day from one screen.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -21,12 +21,12 @@ export default function OpengraphImage() {
             <div style={{ display: "flex", fontSize: 36, fontWeight: 700 }}>NuvaLyf</div>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ display: "flex", fontSize: 76, fontWeight: 800, lineHeight: 1.05, letterSpacing: -2 }}>Run your clinic.</div>
-            <div style={{ display: "flex", fontSize: 76, fontWeight: 800, lineHeight: 1.05, letterSpacing: -2, color: "#14B8A6" }}>Fill it with patients.</div>
-            <div style={{ display: "flex", marginTop: 26, fontSize: 28, color: "rgba(255,255,255,0.65)" }}>Clinic EMR + online booking with a live queue</div>
+            <div style={{ display: "flex", fontSize: 64, fontWeight: 800, lineHeight: 1.05, letterSpacing: -2 }}>Run your whole clinic day</div>
+            <div style={{ display: "flex", fontSize: 64, fontWeight: 800, lineHeight: 1.05, letterSpacing: -2, color: "#14B8A6" }}>from one screen.</div>
+            <div style={{ display: "flex", marginTop: 26, fontSize: 28, color: "rgba(255,255,255,0.65)" }}>Clinic management system + online booking with a live queue</div>
           </div>
           <div style={{ display: "flex", gap: 14 }}>
-            {["NuvaLyf EMR", "DocConnect", "India · UAE"].map((t) => (
+            {["NuvaLyf CMS", "DocConnect", "India · UAE"].map((t) => (
               <div key={t} style={{ display: "flex", padding: "12px 22px", borderRadius: 999, border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.06)", fontSize: 22, fontWeight: 700 }}>{t}</div>
             ))}
           </div>
