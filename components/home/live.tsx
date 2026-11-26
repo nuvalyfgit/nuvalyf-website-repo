@@ -107,7 +107,7 @@ export function PhoneTrack() {
         <p className="mt-7 text-center text-xs uppercase tracking-widest text-[#64748B]">Patients ahead</p>
         <p key={ahead} className="nv-pop text-center font-display text-8xl font-semibold leading-none">{ahead}</p>
         <div className="mt-6 h-2 overflow-hidden rounded-full bg-[#F1F5F9]"><div className="h-full rounded-full bg-[#0F766E] transition-all duration-700" style={{ width: `${((3 - ahead) / 3) * 100}%` }} /></div>
-        <p className="mt-3 text-center text-sm font-semibold text-[#0F766E]">{ahead === 0 ? "It's your turn" : `About ${ahead * 8} min`}</p>
+        <p className="mt-3 text-center text-sm font-semibold text-[#0F766E]">{ahead === 0 ? "It's your turn" : `Est. ${ahead * 8} min wait`}</p>
         <div className="mt-auto space-y-2 pt-6 text-xs">
           <div className="flex justify-between rounded-xl bg-[#F8FAFC] px-3 py-2.5"><span className="text-[#64748B]">Leave home by</span><b>{ahead === 0 ? "Now" : `6:${40 - ahead * 5} PM`}</b></div>
           <div className="rounded-xl bg-[#0F766E] py-2.5 text-center font-semibold text-white">Get directions</div>

@@ -4,8 +4,8 @@ import { WaitCalculator } from "@/components/home/interactive";
 import { pageSeo } from "@/lib/seo";
 
 const baseMetadata: Metadata = {
-  title: "Clinic Waiting Time Calculator: Estimate Time Saved",
-  description: "Free calculator for clinics in India: estimate how many hours of patient waiting a live queue and reminders could save each month. Book a demo to see it in action.",
+  title: "Clinic Wait Time Calculator: Estimate Time Saved",
+  description: "Free calculator for clinics: estimate how many hours of patient waiting a live queue and reminders could save each month. Book a demo to see it.",
   alternates: { canonical: "/tools/clinic-wait-time-calculator" },
 };
 

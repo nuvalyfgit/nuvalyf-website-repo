@@ -7,12 +7,14 @@ import { z } from "zod";
 export const demoRequestSchema = z.object({
   product: z.string().trim().max(60).optional().default(""),
   fullName: z.string().trim().min(2, "Please enter your full name.").max(120),
+  // Optional: the brief asks for name, mobile, clinic and city only.
   email: z
     .string()
     .trim()
-    .min(1, "Please enter your work email.")
     .max(200)
-    .email("Please enter a valid email address."),
+    .refine((v) => v === "" || z.string().email().safeParse(v).success, "Please enter a valid email address.")
+    .optional()
+    .default(""),
   mobile: z
     .string()
     .trim()
@@ -21,9 +23,9 @@ export const demoRequestSchema = z.object({
     .regex(/^[+\d][\d\s()-]*$/, "Please enter a valid mobile number."),
   clinic: z.string().trim().min(2, "Please enter your clinic name.").max(160),
   city: z.string().trim().min(2, "Please enter your city.").max(80),
-  state: z.string().trim().min(2, "Please enter your state.").max(80),
-  specialty: z.string().trim().min(1, "Please select a medical specialty.").max(80),
-  doctors: z.string().trim().min(1, "Please select the number of doctors.").max(40),
+  state: z.string().trim().max(80).optional().default(""),
+  specialty: z.string().trim().max(80).optional().default(""),
+  doctors: z.string().trim().max(40).optional().default(""),
   preferredSlot: z.string().trim().max(120).optional().default(""),
   message: z.string().trim().max(2000).optional().default(""),
   // Spam trap. Real users never see this field, so any value means a bot.

@@ -10,7 +10,7 @@ import { pageSeo } from "@/lib/seo";
 const baseMetadata: Metadata = {
   alternates: { canonical: "/for-hospitals" },
   title: "For Hospitals & Clinics",
-  description: "Clinic and hospital management software: staff and department coordination, patient flow, queues, pharmacy inventory, digital records, reporting and access control.",
+  description: "Hospital and clinic management software: patient flow, queues, pharmacy inventory, digital records, reporting and access control across departments.",
 };
 
 const solutions = [

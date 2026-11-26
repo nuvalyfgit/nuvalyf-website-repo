@@ -42,7 +42,7 @@ function buildHtml(submission: DemoRequest, submittedAt: string): string {
     </td></tr>
     <tr><td style="padding:8px 0;"><table role="presentation" style="width:100%;border-collapse:collapse;">${rows}</table></td></tr>
     <tr><td style="padding:16px;background:#f7fbfa;">
-      <a href="mailto:${encodeURIComponent(submission.email)}" style="font:600 14px system-ui,sans-serif;color:#0b6b63;">Reply to ${escapeHtml(submission.fullName)}</a>
+      <a href="${submission.email ? `mailto:${encodeURIComponent(submission.email)}` : `tel:${escapeHtml(submission.mobile.replace(/[^\d+]/g, ""))}`}" style="font:600 14px system-ui,sans-serif;color:#0b6b63;">${submission.email ? "Reply to" : "Call"} ${escapeHtml(submission.fullName)}</a>
     </td></tr>
   </table>
 </body></html>`;
@@ -72,7 +72,7 @@ export async function sendNotificationEmail(
   const { error } = await new Resend(apiKey).emails.send({
     from,
     to: to.split(",").map((address) => address.trim()).filter(Boolean),
-    replyTo: submission.email,
+    ...(submission.email ? { replyTo: submission.email } : {}),
     subject: `New demo request — ${submission.fullName} (${submission.clinic})`,
     html: buildHtml(submission, submittedAt),
     text: buildText(submission, submittedAt),

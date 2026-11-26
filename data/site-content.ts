@@ -3,6 +3,7 @@ export type NavItem = NavLink | { label: string; items: NavLink[] };
 
 /** Grouped primary navigation. Every page in the brief is reachable from here. */
 export const navigation: NavItem[] = [
+  { label: "Home", href: "/" },
   {
     label: "Products",
     items: [

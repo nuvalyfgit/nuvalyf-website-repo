@@ -55,7 +55,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
           {navigation.map((item) =>
             "items" in item ? (
               <div key={item.label} className="group relative" onMouseEnter={hover}>
-                <button type="button" className="relative flex items-center gap-1 px-4 py-5 text-[14px] font-medium text-[#334155] transition-colors group-hover:text-[#0B1120]" aria-haspopup="true">
+                <button type="button" className="relative flex items-center gap-1 whitespace-nowrap px-3 py-5 text-[14px] xl:px-4 font-medium text-[#334155] transition-colors group-hover:text-[#0B1120]" aria-haspopup="true">
                   {item.label}
                   <ChevronDown className="h-3.5 w-3.5 opacity-60 transition duration-300 group-hover:rotate-180 group-focus-within:rotate-180" />
                 </button>
@@ -77,7 +77,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
                 </div>
               </div>
             ) : (
-              <a key={item.href} href={item.href} onMouseEnter={hover} className="relative px-4 py-5 text-[14px] font-medium text-[#334155] transition-colors hover:text-[#0B1120]">
+              <a key={item.href} href={item.href} onMouseEnter={hover} className="relative whitespace-nowrap px-3 py-5 text-[14px] xl:px-4 font-medium text-[#334155] transition-colors hover:text-[#0B1120]">
                 {item.label}
               </a>
             ),
@@ -86,13 +86,13 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
 
         <div className="hidden items-center gap-1 lg:flex">
           <a href="/ar" lang="ar" className="rounded-full px-3 py-2 text-sm text-[#64748B] transition hover:bg-[#F1F5F9] hover:text-[#0B1120]">عربي</a>
-          <a href={emrSignInUrl} className="rounded-full px-4 py-2 text-sm font-medium text-[#334155] transition hover:bg-[#F1F5F9] hover:text-[#0B1120]">Sign in</a>
+          <a href={emrSignInUrl} className="whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium text-[#334155] transition hover:bg-[#F1F5F9] hover:text-[#0B1120]">Sign in</a>
           <a
             href="/book-a-demo"
             className="group relative ml-1 inline-flex h-11 items-center gap-2 overflow-hidden rounded-full bg-[#0F766E] px-5 text-sm font-semibold text-white transition hover:bg-[#115E59]"
           >
             
-            <span className="relative">Book a Demo</span>
+            <span className="relative whitespace-nowrap">Book a Demo</span>
             <span className="relative grid h-6 w-6 place-items-center rounded-full bg-white/15 transition group-hover:translate-x-0.5">
               <ArrowRight className="h-3.5 w-3.5" />
             </span>

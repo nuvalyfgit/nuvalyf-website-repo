@@ -21,11 +21,20 @@ const orgJsonLd = {
   ],
 };
 
+const siteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "NuvaLyf",
+  url: "https://nuvalyf.com",
+  inLanguage: ["en", "ar"],
+  publisher: { "@type": "Organization", name: "NuvaLyf", url: "https://nuvalyf.com" },
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://nuvalyf.com"),
   title: { default: "NuvaLyf | Clinic Management System (CMS) & EMR Software", template: "%s | NuvaLyf" },
   description:
-    "NuvaLyf CMS, our clinic management and EMR software, runs your clinic: records, queue, prescriptions and billing. DocConnect lets patients book online and track their turn live. Book a demo today.",
+    "NuvaLyf is clinic management and EMR software for records, queue, prescriptions and billing. Patients book on DocConnect and track their turn live.",
   openGraph: {
     type: "website",
     siteName: "NuvaLyf",
@@ -57,6 +66,7 @@ export default function RootLayout({
         {children}
         <AnalyticsConsent />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }} />
       </body>
     </html>
   );

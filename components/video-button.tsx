@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { PlayCircle, X } from "lucide-react";
 import { demoVideoUrl } from "@/data/more-content";
 import { docconnect } from "@/data/site-content";
+import { track } from "@/lib/track";
 
 /** "Watch the demo" button. Until demoVideoUrl is set, the dialog offers the live demo instead. */
 export function VideoButton({ className = "" }: { className?: string }) {
@@ -18,7 +19,7 @@ export function VideoButton({ className = "" }: { className?: string }) {
 
   return (
     <>
-      <button type="button" onClick={() => setOpen(true)} className={`inline-flex items-center gap-2 text-sm font-semibold text-white/75 transition hover:text-white ${className}`}>
+      <button type="button" onClick={() => { setOpen(true); track("video_play"); }}className={`inline-flex items-center gap-2 text-sm font-semibold text-white/75 transition hover:text-white ${className}`}>
         <PlayCircle className="h-5 w-5 text-[#14B8A6]" /> Watch the 2-minute demo
       </button>
 

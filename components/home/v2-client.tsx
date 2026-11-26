@@ -63,7 +63,7 @@ export function Walkthrough({ eyebrow = "How it works", title = "From booking to
           </div>
         </div>
         <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-2xl border border-[#E2E8F0] bg-white px-5 py-4">
-          <span className="text-[#475569]">Want to see this with your own clinic?</span>
+          <span className="text-[#475569]">Want to see this with your own clinic? <span className="text-xs text-[#94A3B8]">(Screens show sample data.)</span></span>
           <a href="/book-a-demo" className="inline-flex items-center gap-1 text-sm font-semibold text-[#0F766E] hover:underline">Book a free demo →</a>
         </div>
       </div>

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const s = specialtyPages.find((p) => p.slug === slug);
   if (!s) return {};
   return {
-    title: `${s.name} Clinic Software: EMR & Online Booking`,
+    title: `${s.name} Clinic Software & EMR`,
     description: `${s.headline} ${s.intro}`,
     alternates: { canonical: `/specialties/${s.slug}` },
   };

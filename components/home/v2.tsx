@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Counter, Reveal } from "./effects";
 import { LiveQueue, PhoneTrack } from "./live";
 
@@ -48,6 +48,7 @@ export function Hero({ clinics, countries }: { clinics: number; countries: numbe
             </span>
           </div>
           <div className="absolute -bottom-8 -right-6 hidden w-[228px] origin-bottom-right scale-[.66] lg:block"><PhoneTrack /></div>
+          <p className="nv-mono mt-3 text-[10px] uppercase tracking-wider text-white/40">Sample data · not real patients</p>
         </Reveal>
       </div>
     </section>
@@ -100,6 +101,7 @@ export function Proof() {
             </Reveal>
           ))}
         </div>
+        <p className="mt-6 max-w-2xl text-sm leading-6 text-white/55">We don&apos;t claim certifications we haven&apos;t earned. Ask us how and where your clinic&apos;s data is stored, and we&apos;ll show you.</p>
       </div>
     </section>
   );
@@ -131,42 +133,54 @@ export function Integrations() {
   );
 }
 
-const people = [
+const people: { name: string; role: string; linkedin?: string }[] = [
   { name: "Syed Affan Zaid", role: "Founder & CEO", linkedin: "https://www.linkedin.com/in/syed-affan-816062265/" },
   { name: "Wasiq Mohideen", role: "Co-Founder & CTO" },
   { name: "Syed Rayan Maaz", role: "Co-Founder & Sales Director" },
   { name: "Mohammed Sufiyan", role: "Developer" },
 ];
 
+/** Editorial list of the core team: one calm row per person, no cards. */
 export function Team() {
   return (
-    <section className="bg-white py-14 sm:py-16">
-      <div className="site-container grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+    <section className="bg-white py-14 sm:py-20">
+      <div className="site-container grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <Reveal>
           <p className="text-sm font-semibold text-[#0F766E]">Who we are</p>
-          <h2 className="mt-2 font-display text-3xl font-semibold text-[#0B1120] sm:text-4xl">We, as a team.</h2>
+          <h2 className="mt-2 font-display text-3xl font-semibold text-[#0B1120] sm:text-4xl">The people behind NuvaLyf.</h2>
           <p className="mt-4 text-lg leading-8 text-[#475569]">
-            NuvaLyf is built by a focused team working across India and the UAE. This is our core team. Product, support and onboarding teams work with them on every clinic we set up.
+            A focused team working across India and the UAE. Product, support and onboarding teams work with them on every clinic we set up.
           </p>
-          <div className="mt-6 flex flex-wrap gap-4 text-sm font-semibold">
+          <div className="mt-6 flex flex-wrap gap-5 text-sm font-semibold">
             <a href="/about" className="inline-flex items-center gap-1 text-[#0F766E] hover:underline">About NuvaLyf <ArrowRight className="h-4 w-4" /></a>
-            <a href="/careers" className="inline-flex items-center gap-1 text-[#0F766E] hover:underline">Work with us <ArrowRight className="h-4 w-4" /></a>
+            <a href="/careers" className="inline-flex items-center gap-1 text-[#64748B] hover:text-[#0F766E]">We&apos;re hiring <ArrowRight className="h-4 w-4" /></a>
           </div>
         </Reveal>
-        <ul className="grid gap-3 sm:grid-cols-2">
-          {people.map((p, i) => (
-            <Reveal key={p.name} delay={i * 70}>
-              <li className="flex h-full items-start justify-between gap-3 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-5">
-                <div>
-                  <p className="font-semibold text-[#0B1120]">{p.name}</p>
-                  <p className="mt-0.5 text-sm text-[#64748B]">{p.role}</p>
-                </div>
-                {p.linkedin && (
-                  <a href={p.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${p.name} on LinkedIn`} className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[#0A66C2] text-xs font-bold text-white hover:opacity-90">in</a>
-                )}
+        <ul className="border-t border-[#E2E8F0]">
+          {people.map((p, i) => {
+            const row = (
+              <>
+                <span aria-hidden="true" className="absolute inset-y-3 left-0 w-[3px] origin-center scale-y-0 rounded-full bg-[#0F766E] transition-transform duration-300 group-hover:scale-y-100" />
+                <span className="font-display text-xl font-semibold tracking-tight text-[#0B1120] sm:text-2xl">{p.name}</span>
+                <span className="text-sm text-[#64748B] sm:text-right">{p.role}</span>
+                <span className="hidden w-5 justify-self-end sm:block" aria-hidden="true">
+                  {p.linkedin && <ArrowUpRight className="h-5 w-5 text-[#94A3B8] transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#0F766E]" />}
+                </span>
+              </>
+            );
+            const cls = "group relative grid gap-1 py-5 transition-[padding] duration-300 hover:pl-5 sm:grid-cols-[1fr_auto_auto] sm:items-center sm:gap-6";
+            return (
+              <li key={p.name} className="border-b border-[#E2E8F0]">
+                <Reveal delay={i * 70}>
+                  {p.linkedin ? (
+                    <a href={p.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${p.name}, ${p.role}, on LinkedIn`} className={cls}>{row}</a>
+                  ) : (
+                    <div className={cls}>{row}</div>
+                  )}
+                </Reveal>
               </li>
-            </Reveal>
-          ))}
+            );
+          })}
         </ul>
       </div>
     </section>

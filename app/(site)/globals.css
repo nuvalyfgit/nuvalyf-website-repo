@@ -96,7 +96,8 @@ body {
   text-rendering: optimizeLegibility;
 }
 a { text-decoration: none; }
-button, input, textarea, select { font: inherit; }
+/* In the base layer so Tailwind text-size/weight classes on buttons still win. */
+@layer base { button, input, textarea, select { font: inherit; } }
 ::selection { background: #bcece3; color: #0F172A; }
 
 /* The container grows with the viewport instead of stopping at 1280px, so
