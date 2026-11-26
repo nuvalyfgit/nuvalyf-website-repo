@@ -24,7 +24,14 @@ export default buildConfig({
   secret: process.env.PAYLOAD_SECRET || "",
   admin: {
     user: Users.slug,
-    meta: { titleSuffix: " | NuvaLyf CMS" },
+    meta: { titleSuffix: " | NuvaLyf CMS", icons: [{ rel: "icon", url: "/icon.png" }] },
+    components: {
+      graphics: { Logo: "/components/admin/graphics#Logo", Icon: "/components/admin/graphics#Icon" },
+      beforeLogin: ["/components/admin/graphics#BeforeLogin"],
+      beforeNavLinks: ["/components/admin/graphics#NavLogo"],
+      afterNavLinks: ["/components/admin/graphics#NavFooter"],
+      beforeDashboard: ["/components/admin/dashboard#Dashboard"],
+    },
   },
   collections: [Posts, Pages, Team, Jobs, Testimonials, Clients, Media, Users],
   globals: [Settings, Faq, Stats, Milestones],

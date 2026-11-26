@@ -26,6 +26,12 @@ import { MetaTitleComponent as MetaTitleComponent_a8a977ebc872c5d5ea7ee689724c08
 import { MetaDescriptionComponent as MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { MetaImageComponent as MetaImageComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { PreviewComponent as PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
+import { Icon as Icon_626e24b987f1ce07afe3d44061a1a2bf } from '../../../components/admin/graphics'
+import { Logo as Logo_626e24b987f1ce07afe3d44061a1a2bf } from '../../../components/admin/graphics'
+import { NavFooter as NavFooter_626e24b987f1ce07afe3d44061a1a2bf } from '../../../components/admin/graphics'
+import { Dashboard as Dashboard_17cbb53d1dcdedc66c123d519d2cff79 } from '../../../components/admin/dashboard'
+import { BeforeLogin as BeforeLogin_626e24b987f1ce07afe3d44061a1a2bf } from '../../../components/admin/graphics'
+import { NavLogo as NavLogo_626e24b987f1ce07afe3d44061a1a2bf } from '../../../components/admin/graphics'
 import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 import { S3ClientUploadHandler as S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24 } from '@payloadcms/storage-s3/client'
 
@@ -59,6 +65,12 @@ export const importMap = {
   "@payloadcms/plugin-seo/client#MetaDescriptionComponent": MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#MetaImageComponent": MetaImageComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#PreviewComponent": PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860,
+  "/components/admin/graphics#Icon": Icon_626e24b987f1ce07afe3d44061a1a2bf,
+  "/components/admin/graphics#Logo": Logo_626e24b987f1ce07afe3d44061a1a2bf,
+  "/components/admin/graphics#NavFooter": NavFooter_626e24b987f1ce07afe3d44061a1a2bf,
+  "/components/admin/dashboard#Dashboard": Dashboard_17cbb53d1dcdedc66c123d519d2cff79,
+  "/components/admin/graphics#BeforeLogin": BeforeLogin_626e24b987f1ce07afe3d44061a1a2bf,
+  "/components/admin/graphics#NavLogo": NavLogo_626e24b987f1ce07afe3d44061a1a2bf,
   "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1,
   "@payloadcms/storage-s3/client#S3ClientUploadHandler": S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24
 }
