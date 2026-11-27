@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-import { docconnect } from "@/data/site-content";
 import { ArrowRight, Building2, CheckCircle2, Loader2, UserRound } from "lucide-react";
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -103,22 +102,20 @@ function WaitlistCard({ type }: { type: "patient" | "clinic" }) {
           {clinic ? <Building2 className="h-5 w-5" /> : <UserRound className="h-5 w-5" />}
         </span>
         <div>
-          <p className={`text-xs font-bold uppercase tracking-[0.14em] ${clinic ? "text-[#99F6E4]" : "text-[#047857]"}`}>{clinic ? "Limited spots" : "For patients"}</p>
-          <h3 className="text-xl font-bold">{clinic ? "Become a founding clinic" : "Get notified at launch"}</h3>
+          <p className={`text-xs font-bold uppercase tracking-[0.14em] ${clinic ? "text-[#99F6E4]" : "text-[#047857]"}`}>{clinic ? "For clinics" : "For patients"}</p>
+          <h3 className="text-xl font-bold">{clinic ? "Join early access" : "Get notified at launch"}</h3>
         </div>
       </div>
 
       {clinic ? (
-        <ul className="mt-5 space-y-2 text-sm text-white/80">
-          {docconnect.foundingPerks.map((p) => <li key={p} className="flex gap-2.5"><CheckCircle2 className="h-4 w-4 shrink-0 text-[#14B8A6]" />{p}</li>)}
-        </ul>
+        <p className="mt-5 text-sm leading-6 text-white/75">Join the DocConnect early-access list. Our team will call you to set up your clinic.</p>
       ) : (
         <p className="mt-5 text-sm leading-6 text-[#64748B]">Be first to book when DocConnect opens in your city. One message at launch, no spam.</p>
       )}
 
       {state === "done" ? (
         <div className={`mt-6 flex flex-1 items-center gap-3 rounded-2xl p-4 text-sm font-semibold ${clinic ? "bg-white/10" : "bg-[#ECFDF5] text-[#065F46]"}`} role="status">
-          <CheckCircle2 className="h-5 w-5 shrink-0" />{clinic ? "Spot reserved. Our team will call you within 2 working days." : "You're on the list. We'll message you at launch."}
+          <CheckCircle2 className="h-5 w-5 shrink-0" />{clinic ? "Thanks! Our team will call you to set up your clinic." : "You're on the list. We'll message you at launch."}
         </div>
       ) : (
         <form onSubmit={submit} noValidate className="mt-6 grid flex-1 content-end gap-3">
@@ -130,7 +127,7 @@ function WaitlistCard({ type }: { type: "patient" | "clinic" }) {
           <input name="contact" placeholder="Phone or email" className={input} aria-label="Phone or email" aria-invalid={!!error} onChange={() => error && setError("")} />
           {error && <p className={`text-xs font-semibold ${clinic ? "text-[#ffb4b4]" : "text-[#c54545]"}`}>{error}</p>}
           <button type="submit" disabled={state === "sending"} className={`mt-1 flex h-12 items-center justify-center gap-2 rounded-full font-bold transition disabled:opacity-70 ${clinic ? "bg-[#14B8A6] text-[#042F2E] hover:bg-[#2DD4BF]" : "bg-[#059669] text-white hover:bg-[#07574f]"}`}>
-            {state === "sending" ? <Loader2 className="h-4 w-4 animate-spin" /> : <>{clinic ? "Reserve my spot" : "Notify me"} <ArrowRight className="h-4 w-4" /></>}
+            {state === "sending" ? <Loader2 className="h-4 w-4 animate-spin" /> : <>{clinic ? "Request a call" : "Notify me"} <ArrowRight className="h-4 w-4" /></>}
           </button>
         </form>
       )}

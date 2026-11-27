@@ -38,12 +38,6 @@ export const allNavLinks: NavLink[] = navigation.flatMap((i) => ("items" in i ? 
 export const docconnect = {
   /** Early-access page. Replaces the old demo-app link until launch. */
   earlyAccessUrl: "/docconnect#early-access",
-  foundingPerks: [
-    "0% commission for the first 6 months",
-    "Priority onboarding and staff training",
-    "“Founding clinic” badge on your profile",
-    "Direct line to the product team",
-  ],
 };
 
 /** Sign-in for existing EMR customers. */
